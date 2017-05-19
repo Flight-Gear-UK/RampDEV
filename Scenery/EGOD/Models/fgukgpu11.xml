@@ -1,0 +1,182 @@
+<PropertyList>
+
+<path>fgukgpu01.ac</path>
+
+ <!-- NASAL -->
+ <nasal>
+  <load>
+   if (!contains(globals, "scenery")) globals["scenery"] = {};
+   if (!contains(scenery, "fgukgpu1")) scenery["fgukgpu1"] = {};
+   if (!contains(scenery.fgukgpu1, "gpu")) scenery.fgukgpu1["gpu"] = {};
+   if (contains(scenery, "sharedDoor")) {
+     scenery.fgukgpu1.gpu[2] =
+       { door :
+         [scenery.sharedDoor.new("/scenery/fgukgpu1/gpu[2]/door[0]", 0)
+         ]
+       };
+   } else {
+     scenery.fgukgpu1.gpu[2] =
+       { door :
+         [aircraft.door.new("/scenery/fgukgpu1/gpu[2]/door[0]", 0)
+         ]
+       };
+   }
+  </load>
+  <unload>
+   if (contains(scenery, "sharedDoor")) {
+     scenery.fgukgpu1.gpu[2].door[0].destroy();
+   }
+  </unload>
+ </nasal>
+ 
+<!--  pick  -->
+<animation> 
+ <type>pick</type>
+ <object-name>fgukgpu01</object-name>
+ <visible>true</visible>
+ <action>
+  <name>click</name>
+  <button>0</button>
+  <repeatable>false</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>scenery.fgukgpu1.gpu[2].door[0].toggle();</script>
+  </binding>
+ </action>
+</animation>
+
+<!--  lights  -->
+  <animation>
+    <type>select</type>
+    <object-name>gpulight01</object-name>
+	<condition>
+    <property>/scenery/fgukgpu1/gpu[2]/door[0]/position-norm</property>
+	<value>1</value>
+	</condition>
+  </animation>
+ 
+ <!--  smoke  -->
+ <particlesystem>
+		<name>fgukgpu-smoke</name>
+		<texture>fguksmoke.png</texture>
+		<emissive>false</emissive>
+		<lighting>true</lighting>
+		
+		<condition>
+		  <property>/scenery/fgukgpu1/gpu[2]/door[0]/position-norm</property>
+	      <value>1</value>
+        </condition>
+
+	   <offsets>
+			<x-m>-1.37508</x-m>
+			<y-m>-0.33928</y-m>
+			<z-m>1.73554</z-m>
+		</offsets>
+
+		<attach>world</attach>
+
+		<placer>
+			<type>sector</type>
+			<radius-min-m>0</radius-min-m> <!--= only for sector, inner radius at which particles appear-->
+			<radius-max-m>0.05</radius-max-m> <!--= only for sector, outer radius at which particles appear-->
+			<phi-min-deg>0</phi-min-deg> <!--= only for sector, starting angle of the slide at which particles appear-->
+			<phi-max-deg>359</phi-max-deg> <!--= only for sector, ending angle of the slide at which particles appear-->
+		</placer>
+
+		<shooter>
+			<theta-min-deg>-2.0</theta-min-deg>
+			<theta-max-deg>2.0</theta-max-deg>
+			<phi-min-deg>-2.0</phi-min-deg>
+			<phi-max-deg>2.0</phi-max-deg>
+			<speed-mps>
+				<value>1</value>
+                <spread>10</spread>
+			</speed-mps>
+			<rotation-speed>
+				<x-max-deg-sec>10</x-max-deg-sec>
+				<x-min-deg-sec>-10</x-min-deg-sec>
+				<y-max-deg-sec>10</y-max-deg-sec>
+				<y-min-deg-sec>-10</y-min-deg-sec>
+				<z-max-deg-sec>10</z-max-deg-sec>
+				<z-min-deg-sec>-10</z-min-deg-sec>
+			</rotation-speed>
+		</shooter>
+
+		<counter>
+			<particles-per-sec>
+				<value>4</value>
+                <spread>40</spread>
+			</particles-per-sec>
+		</counter>
+
+		<align>billboard</align>
+
+		<particle>
+			<start>
+				<color>
+					<red>
+						<value>0</value>
+					</red>
+					<green>
+						<value>0</value>
+					</green>
+					<blue>
+						<value>0</value>
+					</blue>
+					<alpha>
+						<value>0.10</value>
+					</alpha>
+				</color>
+				<size>
+					<value>0.1</value>
+				</size>
+			</start>
+			<end>
+				<color>
+					<red>
+						<value>0</value>
+					</red>
+					<green>
+						<value>0</value>
+					</green>
+					<blue>
+						<value>0</value>
+					</blue>
+					<alpha>
+						<value>0.05</value>
+					</alpha>
+				</color>
+				<size>
+					<value>1</value>
+				</size>
+			</end>
+			<life-sec>
+				<value>1</value>
+			</life-sec>
+			<mass-kg>0.0050</mass-kg>
+			<radius-m>0.1</radius-m>
+		</particle>
+
+		<program>
+			<fluid>air</fluid>
+			<gravity>true</gravity>
+			<wind>true</wind>
+		</program>
+
+	</particlesystem> 
+
+<!-- RANGE -->
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>16000</max-m>
+ </animation>
+
+ <!--  enable-hot  -->
+ <animation>
+   <object-name>fgukgpu01</object-name>
+   <object-name>gpulight01</object-name>
+   <enable-hot type="bool">false</enable-hot>
+ </animation> 
+
+</PropertyList>

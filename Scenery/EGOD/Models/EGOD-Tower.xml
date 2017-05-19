@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+ <path>EGOD-Tower.ac</path>
+
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>25000</max-m>
+ </animation>
+ 
+ <animation>
+  <type>range</type>
+  <object-name>Railing</object-name>
+   <object-name>ControlTower</object-name>
+  <min-m>0</min-m>
+  <max-m>1500</max-m>
+ </animation>
+ 
+ <animation>
+    <type>select</type>
+    <object-name>Railingl</object-name>
+    <condition>
+        <greater-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.57</value>
+        </greater-than>
+    </condition>
+  </animation>
+ 
+ <nasal>
+  <load>
+	 var slowlooptime = 10; 
+	 var fastlooptime = 5;
+	 
+	 # Declare property roots
+	 var egod_root = props.globals.getNode("/scenery/EGOD",1);
+	 var lighting = egod_root.getNode("lighting",1);
+	 
+	 # Declare property variables
+	 var lut_node = lighting.getNode("lighting-up-time", 1);
+	 lut_node.setBoolValue(1);
+	 var airfield_power = lighting.getNode("power",1);
+	 airfield_power.setBoolValue(1);
+	 var apron_lights = lighting.getNode("apron-lights",1);
+	 apron_lights.setBoolValue(0);
+	 var shelter_lights = lighting.getNode("shelter-lights",1);
+	 shelter_lights.setBoolValue(0);
+	 var helipad_lights = lighting.getNode("helipad-lights",1);
+	 helipad_lights.setBoolValue(0);
+	 	 
+	 var slowloop = func {
+		 checksun();
+         settimer(slowloop, slowlooptime);		 
+		};
+	 
+	 var checksun = func {
+	     var sunangle = props.globals.getNode("/sim/time/sun-angle-rad").getValue();
+		 if ( sunangle > 1.5 ) { lut_node.setBoolValue(1); lightswitch(1); }
+		 else { lut_node.setBoolValue(0); lightswitch(0); }
+		}
+		
+	 var lightswitch = func(n) {
+		 settimer( func { apron_lights.setBoolValue(n); }, ( rand() + 0.5 ));
+		 settimer( func { shelter_lights.setBoolValue(n); }, ( rand() + 2 ));
+		 settimer( func { helipad_lights.setBoolValue(n); }, ( rand() + 3 ));
+		}
+		
+		 
+	 var init = func {
+	     print("Initialising Llanbedr (EGOD) Control Script:");
+		 print(" - setting shared-events property to TRUE");
+		 props.globals.getNode("/scenery/share-events",1).setBoolValue(1);
+		 print(" - starting loops");
+		 slowloop();
+		 #fastloop();
+		 print("...done!");
+		}
+		
+	 init();
+	 
+	     
+  </load>
+   <unload>
+                        loaded = 0;
+                        print("Bye, bye!")
+   </unload>
+ </nasal>
+
+
+ 
+ </PropertyList>

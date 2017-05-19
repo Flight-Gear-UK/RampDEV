@@ -1,0 +1,108 @@
+
+<PropertyList>
+
+ <path>egodshelter101.ac</path>
+ 
+ <nasal>
+  <load>
+   if (!contains(globals, "scenery")) globals["scenery"] = {};
+   if (!contains(scenery, "shelter101")) scenery["shelter101"] = {};
+   if (!contains(scenery.shelter101, "shelter")) scenery.shelter101["shelter"] = {};
+   if (contains(scenery, "sharedDoor")) {
+     scenery.shelter101.shelter[0] =
+       { door :
+         [scenery.sharedDoor.new("/scenery/shelter101/shelter[0]/door[0]", 5),
+          scenery.sharedDoor.new("/scenery/shelter101/shelter[0]/door[1]", 5)
+         ]
+       };
+   } else {
+     scenery.shelter101.shelter[0] =
+       { door :
+         [aircraft.door.new("/scenery/shelter101/shelter[0]/door[0]", 5),
+          aircraft.door.new("/scenery/shelter101/shelter[0]/door[1]", 5)
+         ]
+       };
+   }
+  </load>
+  <unload>
+   if (contains(scenery, "sharedDoor")) {
+     scenery.shelter101.shelter[0].door[0].destroy();
+     scenery.shelter101.shelter[0].door[1].destroy();
+   }
+  </unload>
+ </nasal>
+ 
+ <!-- DOORS -->
+
+<animation>
+ <type>pick</type>
+ <object-name>sheterdoor101</object-name>
+ <object-name>sheterdoorf101</object-name>
+ <visible>true</visible>
+ <action>
+  <name>click</name>
+  <button>0</button>
+  <repeatable>false</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>scenery.shelter101.shelter[0].door[0].toggle();</script>
+  </binding>
+ </action>
+</animation>
+
+<animation>
+ <type>pick</type>
+ <object-name>sheterdoor102</object-name>
+ <object-name>sheterdoorf102</object-name>
+ <visible>true</visible>
+ <action>
+  <name>click</name>
+  <button>0</button>
+  <repeatable>false</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>scenery.shelter101.shelter[0].door[1].toggle();</script>
+  </binding>
+ </action>
+</animation>
+
+
+ <animation>
+  <type>translate</type>
+  <object-name>sheterdoor101</object-name>
+  <property>/scenery/shelter101/shelter[0]/door[0]/position-norm</property>
+  <factor>14</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>sheterdoor102</object-name>
+  <property>/scenery/shelter101/shelter[0]/door[1]/position-norm</property>
+  <factor>14</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+  
+ 
+  <!--  enable-hot  -->
+ <animation>
+    <object-name>shelter101</object-name>
+	<enable-hot type="bool">false</enable-hot>
+  </animation> 
+  
+  <!-- RANGE -->
+ <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-property>sim/rendering/static-lod/bare</max-property>
+ </animation>
+
+</PropertyList>

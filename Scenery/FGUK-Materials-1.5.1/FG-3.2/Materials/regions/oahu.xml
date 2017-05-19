@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!-- General settings for all Oahu and Kaua'i -->
+<PropertyList>
+  <!-- Define Oahu and Kaua'i as a box with given latitude/longitude -->
+  <condition>
+   <and>
+   <equals>
+    <property>sim/startup/season</property>
+    <value>summer</value>
+   </equals>
+    <and>
+     <greater-than>
+      <property>position/longitude-deg</property>
+      <value>-160.0</value>
+     </greater-than>
+     <less-than>
+      <property>position/longitude-deg</property>
+      <value>-157.5</value>
+     </less-than>
+     <greater-than>
+      <property>position/latitude-deg</property>
+      <value>18.8</value>
+     </greater-than>
+     <less-than>
+      <property>position/latitude-deg</property>
+      <value>28.5</value>
+     </less-than>
+    </and>
+   </and>
+  </condition>
+
+</PropertyList>

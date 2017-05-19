@@ -1,0 +1,5 @@
+OBJECT_SHARED Models/Airport/ndb.ac -14.41 -7.946833 54.3 180
+OBJECT_SHARED Models/Communications/vordme_1.xml -14.397336 -7.969878 130.99 180
+
+
+OBJECT_SHARED Models/FGUK/Circular-runway01.ac -14.45168611 -7.92783968 -2.7813 0.0 0.0

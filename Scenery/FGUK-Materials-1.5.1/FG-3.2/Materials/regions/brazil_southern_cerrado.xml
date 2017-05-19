@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<PropertyList>
+  
+	  <condition>
+   <and>
+   <equals>
+    <property>sim/startup/season</property>
+    <value>summer</value>
+   </equals>
+    <and>
+     <greater-than>
+      <property>position/longitude-deg</property>
+      <value>-64.26</value>
+     </greater-than>
+     <less-than>
+      <property>position/longitude-deg</property>
+      <value>-34.50</value>
+     </less-than>
+     <greater-than>
+      <property>position/latitude-deg</property>
+      <value>-20.00</value>
+     </greater-than>
+     <less-than>
+      <property>position/latitude-deg</property>
+      <value>-25.86</value>
+     </less-than>
+    </and>
+   </and>
+  </condition>
+  
+</PropertyList>

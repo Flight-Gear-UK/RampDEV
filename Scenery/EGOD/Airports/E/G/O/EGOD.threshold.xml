@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <runway>
+    <threshold>
+      <lon>-4.129703</lon>
+      <lat>52.807638</lat>
+      <rwy>05</rwy>
+      <hdg-deg>46.5</hdg-deg>
+      <displ-m>0</displ-m>
+      <stopw-m>46</stopw-m>
+    </threshold>
+    <threshold>
+      <lon>-4.115605</lon>
+      <lat> 52.815735</lat>
+      <rwy>23</rwy>
+      <hdg-deg>226.5</hdg-deg>
+      <displ-m>0</displ-m>
+      <stopw-m>107</stopw-m>
+    </threshold>
+  </runway>
+  <runway>
+    <threshold>
+      <lon>  -4.130543</lon>
+      <lat> 52.817403</lat>
+      <rwy>15</rwy>
+      <hdg-deg>148.2</hdg-deg>
+      <displ-m>0</displ-m>
+      <stopw-m>0</stopw-m>
+    </threshold>
+    <threshold>
+      <lon>  -4.120092</lon>
+      <lat> 52.807231</lat>
+      <rwy>33</rwy>
+      <hdg-deg>328.2</hdg-deg>
+      <displ-m>0</displ-m>
+      <stopw-m>0</stopw-m>
+    </threshold>
+  </runway>
+  <runway>
+    <threshold>
+      <lon>  -4.130334</lon>
+      <lat> 52.815136</lat>
+      <rwy>17</rwy>
+      <hdg-deg>169.7</hdg-deg>
+      <displ-m>95</displ-m>
+      <stopw-m>0</stopw-m>
+    </threshold>
+    <threshold>
+      <lon>  -4.124315</lon>
+      <lat> 52.795087</lat>
+      <rwy>35</rwy>
+      <hdg-deg>349.7</hdg-deg>
+      <displ-m>0</displ-m>
+      <stopw-m>0</stopw-m>
+    </threshold>
+  </runway>
+</PropertyList>

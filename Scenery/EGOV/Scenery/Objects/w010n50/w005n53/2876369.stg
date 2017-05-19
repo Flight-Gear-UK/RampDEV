@@ -1,0 +1,51 @@
+OBJECT_SHARED Models/Military/ctype.ac -4.54901089 53.2508528 5.21 183.2
+OBJECT_SHARED Models/Misc/trigpoint.ac -4.675587 53.31341 203.7 180
+OBJECT_SHARED Models/Misc/trigpoint.ac -4.622782 53.289875 21.63 180
+OBJECT_SHARED Models/Misc/trigpoint.ac -4.515632 53.32564 39.91 180
+OBJECT_SHARED Models/Airport/ils.xml -4.541603 53.252981 8.96 226.34
+OBJECT_SHARED Models/Airport/tacan.xml -4.544139 53.257422 9.37 180
+OBJECT_SHARED Models/Airport/marker.ac -4.650536 53.314628 21.17 180
+OBJECT_SHARED Models/Airport/marker.ac -4.557228 53.259903 4.37 180
+OBJECT_SHARED Models/Military/t2.ac -4.53420839 53.25177254 10.75 228
+OBJECT_SHARED Models/Military/t2.ac -4.53198259 53.25139039 11.11 287.6
+OBJECT_SHARED Models/Industrial/generic_chimney_01.xml -4.6052778 53.3 -368.91 180
+OBJECT_SHARED Models/Military/fuel-truck-medpoly.xml -4.53639638 53.25308183 10.59 84
+OBJECT_SHARED Models/Military/fuel-truck-medpoly.xml -4.5331073 53.25140553 10.87 144
+OBJECT_SHARED Models/Airport/hangar3.ac -4.53097703 53.25129827 11.27 288.2
+OBJECT_SHARED Models/Military/AmmoBunker.ac -4.5430205 53.25527867 9.22 218.7
+OBJECT_SHARED Models/Military/military-grey-hangar-1place.ac -4.5497338 53.25030553 4.58 96
+OBJECT_SHARED Models/Airport/Vehicle/generic-trailer-GPU.xml -4.53637663 53.25314009 10.61 84.2
+OBJECT_SHARED Models/Airport/Vehicle/generic-trailer-GPU.xml -4.53633343 53.25339159 10.68 84
+OBJECT_SHARED Models/Airport/Vehicle/generic-trailer-GPU.xml -4.53339885 53.25008439 10.2 21.6
+OBJECT_SHARED Models/Airport/Vehicle/generic-trailer-GPU.xml -4.53302223 53.25018127 10.33 21.7
+OBJECT_SHARED Models/Airport/LIME_hangarsemicircular.ac -4.54121494 53.25593392 9.74 29.9
+OBJECT_SHARED Models/Airport/EDFH-westconnector-n.xml -4.52821459 53.25037157 11.24 110.6
+OBJECT_SHARED Models/Maritime/Civilian/D_Class_IRB.xml -4.6239 53.27701 0 0
+OBJECT_SHARED Models/Airport/Apronlamp16m360deg.xml -4.53384623 53.25040495 10.24 36
+OBJECT_SHARED Models/Airport/Apronlamp16m360deg.xml -4.53301491 53.25061211 10.53 36
+OBJECT_SHARED Models/Airport/Apronlamp16m360deg.xml -4.53227149 53.25080693 10.79 36
+OBJECT_SHARED Models/Maritime/Civilian/Pilot_Boat.ac -4.60923 53.32785 -0.35 0
+OBJECT_STATIC South_Stack_Lighthouse.xml -4.69832729 53.30667536 0 92
+OBJECT_STATIC South_Stack_Lighthouse_accom.ac -4.69832729 53.30667536 0 92
+OBJECT_STATIC South_Stack_Lighthouse_Storage.ac -4.69832729 53.30667536 0 92
+OBJECT_STATIC South_Stack_Lighthouse_Walls.ac -4.69832729 53.30667536 0 92
+OBJECT_STATIC egov-tower.xml -4.53639873 53.251697 12.33 24.1
+
+OBJECT_SHARED Models/Transport/van_silver.ac -4.53478579 53.25191164 10.6023 144.0 0.0
+OBJECT_SHARED Models/Transport/storage_container_20ft_white.ac -4.53420816 53.25221907 10.9082 312.0 0.0
+OBJECT_SHARED Models/Transport/hatchback_silver.ac -4.53636142 53.25187388 10.2128 296.0 0.0
+OBJECT_SHARED Models/Transport/hatchback_red.ac -4.53634142 53.25184846 10.2051 300.0 0.0
+OBJECT_SHARED Models/Transport/grit_container.ac -4.53635368 53.25161688 10.1156 204.0 0.0
+OBJECT_SHARED Models/Transport/110Bus.xml -4.58764619 53.27212920 5.7125 292.0 0.0
+OBJECT_SHARED Models/StreetFurniture/Stop-Sign.ac -4.53569232 53.25261040 10.0893 88.0 0.0
+OBJECT_SHARED Models/StreetFurniture/streetlights_barrier.ac -4.53331026 53.25171149 10.9519 168.0 0.0
+OBJECT_SHARED Models/StreetFurniture/Litter_Bin.ac -4.53634772 53.25165195 10.1309 296.0 0.0
+OBJECT_SHARED Models/StreetFurniture/Litter_Bin.ac -4.53654852 53.25177946 10.1193 296.0 0.0
+OBJECT_SHARED Models/Airport/generic-trailer-GPU.xml -4.53627412 53.25373494 10.7816 84.0 0.0
+OBJECT_SHARED Models/Airport/Vehicle/RW_GWG_MAN.ac -4.53613251 53.25130403 9.9637 144.0 0.0
+OBJECT_SHARED Models/Airport/Vehicle/dragon.xml -4.53620034 53.25134057 10.0466 52.0 0.0
+OBJECT_SHARED Models/Airport/generic-trailer-GPU.xml -4.53205329 53.25043280 10.6617 24.2 0.0
+OBJECT_SHARED Models/Airport/generic-trailer-GPU.xml -4.53166444 53.25052946 10.7937 24.0 0.0
+
+
+OBJECT_STATIC b-hang.ac -4.53413658 53.25295134 11.2329 354.2 0.0

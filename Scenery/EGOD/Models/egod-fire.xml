@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PropertyList>
+
+ <path>egodfire.ac</path>
+ 
+ <nasal>
+  <load>
+   if (!contains(globals, "scenery")) globals["scenery"] = {};
+   if (!contains(scenery, "firehouse")) scenery["firehouse"] = {};
+   if (!contains(scenery.firehouse, "hangar")) scenery.firehouse["hangar"] = {};
+   if (contains(scenery, "sharedDoor")) {
+     scenery.firehouse.hangar[4] =
+       { door :
+         [scenery.sharedDoor.new("/scenery/firehouse/hangar[4]/door[0]", 10),
+          scenery.sharedDoor.new("/scenery/firehouse/hangar[4]/door[1]", 10)
+         ]
+       };
+   } else {
+     scenery.firehouse.hangar[4] =
+       { door :
+         [aircraft.door.new("/scenery/firehouse/hangar[4]/door[0]", 10),
+          aircraft.door.new("/scenery/firehouse/hangar[4]/door[1]", 10)
+         ]
+       };
+   }
+  </load>
+  <unload>
+   if (contains(scenery, "sharedDoor")) {
+     scenery.firehouse.hangar[4].door[0].destroy();
+     scenery.firehouse.hangar[4].door[1].destroy();
+   }
+  </unload>
+ </nasal>
+ 
+ <!-- DOORS -->
+
+<animation>
+ <type>pick</type>
+ <object-name>firedoor11</object-name>
+ <object-name>firedoor12</object-name>
+ <object-name>firedoor13</object-name>
+ <object-name>firedoor21</object-name>
+ <object-name>firedoor22</object-name>
+ <object-name>firedoor23</object-name>
+ <visible>true</visible>
+ <action>
+  <name>click</name>
+  <button>0</button>
+  <repeatable>false</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>scenery.firehouse.hangar[4].door[0].toggle();</script>
+  </binding>
+ </action>
+</animation>
+
+<animation>
+ <type>pick</type>
+ <object-name>firedoor31</object-name>
+ <object-name>firedoor32</object-name>
+ <object-name>firedoor33</object-name>
+ <object-name>firedoor41</object-name>
+ <object-name>firedoor42</object-name>
+ <object-name>firedoor43</object-name>
+ <visible>true</visible>
+ <action>
+  <name>click</name>
+  <button>0</button>
+  <repeatable>false</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>scenery.firehouse.hangar[4].door[1].toggle();</script>
+  </binding>
+ </action>
+</animation>
+
+
+
+ <animation>
+  <type>translate</type>
+  <object-name>firedoor11</object-name>
+  <object-name>firedoor21</object-name>
+  <property>/scenery/firehouse/hangar[4]/door[0]/position-norm</property>
+  <factor>5</factor>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>2</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>2</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>2</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  
+  <animation>
+  <type>translate</type>
+  <object-name>firedoor12</object-name>
+  <object-name>firedoor22</object-name>
+  <property>/scenery/firehouse/hangar[4]/door[0]/position-norm</property>
+  <factor>5</factor>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>2</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>4</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>4</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  
+  <animation>
+  <type>translate</type>
+  <object-name>firedoor13</object-name>
+  <object-name>firedoor23</object-name>
+  <property>/scenery/firehouse/hangar[4]/door[0]/position-norm</property>
+  <factor>5</factor>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>2</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>4</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>5</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  
+  
+  
+  <animation>
+  <type>translate</type>
+  <object-name>firedoor31</object-name>
+  <object-name>firedoor41</object-name>
+  <property>/scenery/firehouse/hangar[4]/door[1]/position-norm</property>
+  <factor>5</factor>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>2</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>2</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>2</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  
+  <animation>
+  <type>translate</type>
+  <object-name>firedoor32</object-name>
+  <object-name>firedoor42</object-name>
+  <property>/scenery/firehouse/hangar[4]/door[1]/position-norm</property>
+  <factor>5</factor>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>2</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>4</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>4</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  
+  <animation>
+  <type>translate</type>
+  <object-name>firedoor33</object-name>
+  <object-name>firedoor43</object-name>
+  <property>/scenery/firehouse/hangar[4]/door[1]/position-norm</property>
+  <factor>5</factor>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>2</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>4</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>5</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  
+    <!-- LIGHTS -->
+	
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path> 
+	 <offsets> 
+		<x-m>31.82618</x-m>
+		<y-m>22.71619</y-m>
+		<z-m>14.76308</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model>
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path> 
+	 <offsets> 
+		<x-m>31.82618</x-m>
+		<y-m>10.12646</y-m>
+		<z-m>14.76308</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model>
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path> 
+	 <offsets> 
+		<x-m>20.92315</x-m>
+		<y-m>3.8316</y-m>
+		<z-m>14.76308</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model>
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path> 
+	 <offsets> 
+		<x-m>10.02013</x-m>
+		<y-m>10.12647</y-m>
+		<z-m>14.76308</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model> 
+  
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path>  
+	 <offsets> 
+		<x-m>10.02013</x-m>
+		<y-m>22.71619</y-m>
+		<z-m>14.76308</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model>
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path>  
+	 <offsets> 
+		<x-m>20.92315</x-m>
+		<y-m>29.01106</y-m>
+		<z-m>14.76308</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model>
+  
+  
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path>  
+	 <offsets> 
+		<x-m>-31.94713</x-m>
+		<y-m>22.68572</y-m>
+		<z-m>14.76743</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model>
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path>  
+	 <offsets> 
+		<x-m>-31.94713</x-m>
+		<y-m>10.05718</y-m>
+		<z-m>14.76743</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model>
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path>  
+	 <offsets> 
+		<x-m>-21.01049</x-m>
+		<y-m>3.74291</y-m>
+		<z-m>14.76743</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model>
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path>  
+	 <offsets> 
+		<x-m>-10.07385</x-m>
+		<y-m>10.05718</y-m>
+		<z-m>14.76743</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model>
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path>  
+	 <offsets> 
+		<x-m>-10.07385</x-m>
+		<y-m>22.68572</y-m>
+		<z-m>14.76743</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model>
+  <model>
+	<path>Scenery/EGOD/Models/egodfirelights.xml</path>  
+	 <offsets> 
+		<x-m>-21.01049</x-m>
+		<y-m>29.0</y-m>
+		<z-m>14.76743</z-m>
+		<heading-deg>0</heading-deg>
+	 </offsets>
+  </model>  
+  
+  <!-- RANGE -->
+ <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-property>sim/rendering/static-lod/bare</max-property>
+ </animation>
+ 
+</PropertyList>

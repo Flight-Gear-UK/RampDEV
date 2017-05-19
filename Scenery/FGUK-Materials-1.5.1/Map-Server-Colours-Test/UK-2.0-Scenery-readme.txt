@@ -1,0 +1,7 @@
+
+
+materials.xml folder goes in
+data/Materials/regions/materials.xml
+
+the colours folder gose in
+data/Textures.high/Terrain/

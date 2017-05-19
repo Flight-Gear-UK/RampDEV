@@ -1,0 +1,64 @@
+FGUK Materials Effects Textures For Flightgear
+
+
+Install
+
+
+Materials 
+
+materials.xml and the other xml folders goes in
+data/Materials/regions/ Add the XML files
+
+
+
+
+Effects FG.3.4 Up
+
+data/Effects/ dirt-runway.eff runway.eff
+
+
+Shaders FG.3.4 Up
+
+data/Shaders/ all here
+
+
+
+
+FG 3.2
+
+Terrain
+data/Textures.high/Runway/ add the textures
+
+data/Textures.high/Terrain/ add the textures
+
+data/Textures.high/Terrain.winter/ add the textures
+
+data/Textures.high/Trees/ add the textures
+
+
+
+
+
+
+
+FG 3.4 FG.3.4 Up
+
+Terrain
+data/Textures/Runway/ add the textures
+
+data/Textures/Terrain/ add the textures
+
+data/Textures/Terrain.winter/ add the textures
+
+data/Textures/Trees/ add the textures
+
+
+
+
+
+
+
+FG 2016 Up
+data/Materials/regions/ Add the XML files
+data/Textures/Terrain/ add the textures
+

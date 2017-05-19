@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<groundnet>
+   <version>1</version>
+  <frequencies>
+    <TOWER>12620</TOWER>
+    <APPROACH>12620</APPROACH>
+  </frequencies>
+  <parkingList>
+    <Parking index="0"
+             type="gate"
+             name="CR"
+             number=""
+             lat="S7 55.49"
+             lon="W14 26.50"
+             heading="180"
+             radius="17.3"
+             airlineCodes="" />
+
+    
+
+   
+
+  </parkingList>
+
+</groundnet>

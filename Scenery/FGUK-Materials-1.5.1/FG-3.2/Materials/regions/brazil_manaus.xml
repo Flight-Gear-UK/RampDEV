@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- Regional definitions for Manaus, Brazil. Its problem is that the city actually consists of grass only! This is a hack to bring the city back :) -->
+
+<PropertyList>
+  
+
+  <condition>
+   <and>
+   <equals>
+    <property>sim/startup/season</property>
+    <value>summer</value>
+   </equals>
+    <and>
+     <greater-than>
+      <property>position/longitude-deg</property>
+      <value>-60.1</value>
+     </greater-than>
+     <less-than>
+      <property>position/longitude-deg</property>
+      <value>-59.8</value>
+     </less-than>
+     <greater-than>
+      <property>position/latitude-deg</property>
+      <value>-2.8</value>
+     </greater-than>
+     <less-than>
+      <property>position/latitude-deg</property>
+      <value>-3.2</value>
+     </less-than>
+    </and>
+   </and>
+  </condition>
+
+</PropertyList>

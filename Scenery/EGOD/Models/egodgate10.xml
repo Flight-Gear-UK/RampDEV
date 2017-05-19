@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PropertyList>
+
+ <path>egodgate10.ac</path>
+ 
+ <!-- NASAL -->
+
+ <nasal>
+  <load>
+   if (!contains(globals, "scenery")) globals["scenery"] = {};
+   if (!contains(scenery, "egodgate")) scenery["egodgate"] = {};
+   if (!contains(scenery.egodgate, "gate")) scenery.egodgate["gate"] = {};
+   if (contains(scenery, "sharedDoor")) {
+     scenery.egodgate.gate[0] =
+       { door :
+         [scenery.sharedDoor.new("/scenery/egodgate/gate[0]/door[0]", 5),
+          scenery.sharedDoor.new("/scenery/egodgate/gate[0]/door[1]", 5)
+         ]
+       };
+   } else {
+     scenery.egodgate.gate[0] =
+       { door :
+         [aircraft.door.new("/scenery/egodgate/gate[0]/door[0]", 5),
+          aircraft.door.new("/scenery/egodgate/gate[0]/door[1]", 5)
+         ]
+       };
+   }
+  </load>
+  <unload>
+   if (contains(scenery, "sharedDoor")) {
+     scenery.egodgate.gate[0].door[0].destroy();
+     scenery.egodgate.gate[0].door[1].destroy();
+   }
+  </unload>
+ </nasal>
+ 
+ <!-- DOORS -->
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>ldoor10</object-name>
+  <property>/scenery/egodgate/gate[0]/door[0]/position-norm</property>
+  <factor>-90</factor>
+    <center>
+     <x-m>0.0</x-m>
+     <y-m>-2.5</y-m>
+     <z-m>1.10797</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>rdoor20</object-name>
+  <property>/scenery/egodgate/gate[0]/door[1]/position-norm</property>
+  <factor>90</factor>
+    <center>
+     <x-m>0.0</x-m>
+     <y-m>2.5</y-m>
+     <z-m>1.10797</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+ 
+ <animation>
+ <type>pick</type>
+ <object-name>ldoor10</object-name>
+ <visible>true</visible>
+ <action>
+  <name>click</name>
+  <button>0</button>
+  <repeatable>false</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>scenery.egodgate.gate[0].door[0].toggle();</script>
+  </binding>
+ </action>
+</animation>
+
+<animation>
+ <type>pick</type>
+ <object-name>rdoor20</object-name>
+ <visible>true</visible>
+ <action>
+  <name>click</name>
+  <button>0</button>
+  <repeatable>false</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>scenery.egodgate.gate[0].door[1].toggle();</script>
+  </binding>
+ </action>
+</animation>
+ 
+ 
+  
+  <!-- RANGE -->
+ <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-property>sim/rendering/static-lod/bare</max-property>
+ </animation>
+ 
+</PropertyList>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PropertyList>
+
+ <path>egodhanger2.ac</path>
+ 
+ <nasal>
+  <load>
+   if (!contains(globals, "scenery")) globals["scenery"] = {};
+   if (!contains(scenery, "hanger2")) scenery["hanger2"] = {};
+   if (!contains(scenery.hanger2, "hangar")) scenery.hanger2["hangar"] = {};
+   if (contains(scenery, "sharedDoor")) {
+     scenery.hanger2.hangar[0] =
+       { door :
+         [scenery.sharedDoor.new("/scenery/hanger2/hangar[0]/door[0]", 30),
+          scenery.sharedDoor.new("/scenery/hanger2/hangar[0]/door[1]", 30),
+		  scenery.sharedDoor.new("/scenery/hanger2/hangar[0]/door[2]", 30),
+		  scenery.sharedDoor.new("/scenery/hanger2/hangar[0]/door[3]", 30)
+         ]
+       };
+   } else {
+     scenery.hanger2.hangar[0] =
+       { door :
+         [aircraft.door.new("/scenery/hanger2/hangar[0]/door[0]", 30),
+          aircraft.door.new("/scenery/hanger2/hangar[0]/door[1]", 30),
+		  aircraft.door.new("/scenery/hanger2/hangar[0]/door[2]", 30),
+		  aircraft.door.new("/scenery/hanger2/hangar[0]/door[3]", 30)
+         ]
+       };
+   }
+  </load>
+  <unload>
+   if (contains(scenery, "sharedDoor")) {
+     scenery.hanger2.hangar[0].door[0].destroy();
+     scenery.hanger2.hangar[0].door[1].destroy();
+	 scenery.hanger2.hangar[0].door[2].destroy();
+	 scenery.hanger2.hangar[0].door[3].destroy();
+   }
+  </unload>
+ </nasal>
+ 
+ <!-- DOORS -->
+
+<animation>
+ <type>pick</type>
+ <object-name>b-door.0022</object-name>
+ <visible>true</visible>
+ <action>
+  <name>click</name>
+  <button>0</button>
+  <repeatable>false</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>scenery.hanger2.hangar[0].door[0].toggle();</script>
+  </binding>
+ </action>
+</animation>
+
+<animation>
+ <type>pick</type>
+ <object-name>b-door.0032</object-name>
+ <visible>true</visible>
+ <action>
+  <name>click</name>
+  <button>0</button>
+  <repeatable>false</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>scenery.hanger2.hangar[0].door[1].toggle();</script>
+  </binding>
+ </action>
+</animation>
+
+
+ <animation>
+  <type>translate</type>
+  <object-name>b-door.0012</object-name>
+  <property>/scenery/hanger2/hangar[0]/door[0]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>4</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>8.4</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>b-door.0022</object-name>
+  <property>/scenery/hanger2/hangar[0]/door[0]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>8</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>14</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>19</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <animation>
+  <type>translate</type>
+  <object-name>b-door.0032</object-name>
+  <property>/scenery/hanger2/hangar[0]/door[1]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>8</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>14</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>19</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <animation>
+  <type>translate</type>
+  <object-name>b-door.0042</object-name>
+  <property>/scenery/hanger2/hangar[0]/door[1]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>4</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>8.4</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+ 
+
+  
+  
+  
+  
+  
+  
+  
+ 
+
+<animation>
+ <type>pick</type>
+ <object-name>f-door.0022</object-name>
+ <visible>true</visible>
+ <action>
+  <name>click</name>
+  <button>0</button>
+  <repeatable>false</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>scenery.hanger2.hangar[0].door[2].toggle();</script>
+  </binding>
+ </action>
+</animation>
+
+<animation>
+ <type>pick</type>
+ <object-name>f-door.0032</object-name>
+ <visible>true</visible>
+ <action>
+  <name>click</name>
+  <button>0</button>
+  <repeatable>false</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>scenery.hanger2.hangar[0].door[3].toggle();</script>
+  </binding>
+ </action>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>f-door.0012</object-name>
+  <property>/scenery/hanger2/hangar[0]/door[2]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>4</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>8.4</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>f-door.0022</object-name>
+  <property>/scenery/hanger2/hangar[0]/door[2]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>8</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>14</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>19</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <animation>
+  <type>translate</type>
+  <object-name>f-door.0032</object-name>
+  <property>/scenery/hanger2/hangar[0]/door[3]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>8</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>14</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>19</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <animation>
+  <type>translate</type>
+  <object-name>f-door.0042</object-name>
+  <property>/scenery/hanger2/hangar[0]/door[3]/position-norm</property>
+  <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>4</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>8.4</dep>
+   </entry>
+  </interpolation>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>  
+  
+  
+  <!-- LIGHTS -->
+ <animation>
+		<type>material</type>
+		<object-name>lights2</object-name>
+		<transparency>
+			<alpha-prop>environment/visibility-m</alpha-prop>
+			<factor>1</factor>
+			<offset>0</offset>
+			</transparency>
+		<threshold>0.001</threshold>
+	</animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>lights2</object-name>
+    <condition>
+      <equals>
+        <property>controls/switches/lights</property>
+        <value> 0 </value>
+      </equals>
+    </condition>
+  </animation> 
+  
+  <animation>
+    <type>pick</type>
+    <visible>true</visible>
+	<object-name>lights2</object-name>
+	<object-name>lightcase2</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/lights</property>
+      </binding>
+    </action>
+  </animation> 
+  
+   <animation>
+    <type>select</type>
+    <object-name>lights2</object-name>
+    <condition>
+      <not><property>/sim/rendering/rembrandt/enabled</property></not>
+    </condition>
+  </animation> 
+  
+  
+  <!--  enable-hot  -->
+ <animation>
+    <object-name>hanger</object-name>
+	<object-name>lights2</object-name>
+	<object-name>lightcase2</object-name>
+	<object-name>hangerroof2</object-name>
+	<enable-hot type="bool">false</enable-hot>
+  </animation> 
+  
+  <!-- RANGE -->
+ <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-property>sim/rendering/static-lod/bare</max-property>
+ </animation>
+ 
+</PropertyList>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!-- Regional definitions for the Mount Kilimanjaro -->
+<PropertyList>
+  
+  <condition>
+   <and>
+   <equals>
+    <property>sim/startup/season</property>
+    <value>summer</value>
+   </equals>
+    <and>
+     <greater-than>
+      <property>position/longitude-deg</property>
+      <value>37.16</value>
+     </greater-than>
+     <less-than>
+      <property>position/longitude-deg</property>
+      <value>37.60</value>
+     </less-than>
+     <greater-than>
+      <property>position/latitude-deg</property>
+      <value>-3.31</value>
+     </greater-than>
+     <less-than>
+      <property>position/latitude-deg</property>
+      <value>-2.9</value>
+     </less-than>
+    </and>
+   </and>
+  </condition>
+  
+  
+</PropertyList>

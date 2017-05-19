@@ -1,0 +1,456 @@
+
+<PropertyList>
+
+ <path>superhanger.ac</path>
+ 
+ <!--
+ <sound>
+  <path>Scenery/EGOD/Models/superhangar-sound.xml</path>
+ </sound>
+ -->
+ 
+ <nasal>
+  <load>
+   if (!contains(globals, "scenery")) globals["scenery"] = {};
+   if (!contains(scenery, "EGOD")) scenery["EGOD"] = {};
+   if (!contains(scenery.EGOD, "hangar")) scenery.EGOD["hangar"] = {};
+   if (contains(scenery, "sharedDoor")) {
+     scenery.EGOD.hangar[0] =
+       { door :
+         [scenery.sharedDoor.new("/scenery/EGOD/hangar[0]/door[0]", 30),
+          scenery.sharedDoor.new("/scenery/EGOD/hangar[0]/door[1]", 30)
+         ]
+       };
+   } else {
+     scenery.EGOD.hangar[0] =
+       { door :
+         [aircraft.door.new("/scenery/EGOD/hangar[0]/door[0]", 30),
+          aircraft.door.new("/scenery/EGOD/hangar[0]/door[1]", 30)
+         ]
+       };
+   }
+  </load>
+  <unload>
+   if (contains(scenery, "sharedDoor")) {
+     scenery.EGOD.hangar[0].door[0].destroy();
+     scenery.EGOD.hangar[0].door[1].destroy();
+   }
+  </unload>
+ </nasal>
+
+ <animation>
+  <type>pick</type>
+   <object-name>sdoor03</object-name>
+   <object-name>sdoor04</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+     <command>nasal</command>
+	 <script>
+	  scenery.EGOD.hangar[0].door[0].toggle();
+     </script>
+    </binding>
+   </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>sdoor09</object-name>
+   <object-name>sdoor10</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+     <command>nasal</command>
+	 <script>
+	  scenery.EGOD.hangar[0].door[1].toggle();
+     </script>
+    </binding>
+   </action>
+ </animation>
+ 
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-property>sim/rendering/static-lod/bare</max-property>
+  </animation>
+  
+   <animation>
+	<object-name>sroof01</object-name>
+	<enable-hot type="bool">false</enable-hot>
+  </animation>
+   
+   <effect>
+       <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+       <object-name>sroof01</object-name>  	   
+   </effect>
+	
+	
+	
+	
+	
+ <animation>
+  <type>translate</type>
+  <object-name>sdoor03</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[0]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>10.5</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>21</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>31.5</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>translate</type>
+  <object-name>sdoor02</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[0]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>10.5</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>21</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+   <animation>
+  <type>translate</type>
+  <object-name>sdoor01</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[0]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>10.5</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>sdoor04</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[0]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>10.5</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>21</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>31.5</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>translate</type>
+  <object-name>sdoor05</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[0]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>10.5</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>21</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+   <animation>
+  <type>translate</type>
+  <object-name>sdoor06</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[0]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>10.5</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+
+<animation>
+  <type>translate</type>
+  <object-name>sdoor09</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[1]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>10.5</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>21</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>31.5</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>translate</type>
+  <object-name>sdoor08</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[1]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>10.5</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>21</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+   <animation>
+  <type>translate</type>
+  <object-name>sdoor07</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[1]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>10.5</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>sdoor10</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[1]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>10.5</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>21</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>31.5</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>translate</type>
+  <object-name>sdoor11</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[1]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>10.5</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>21</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+   <animation>
+  <type>translate</type>
+  <object-name>sdoor12</object-name>
+  <property>/scenery/EGOD/hangar[0]/door[1]/position-norm</property>
+   <interpolation> 
+   <entry>
+    <ind>0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.33</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.66</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>10.5</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ 
+ <animation>
+    <type>select</type>
+    <object-name>shsign01</object-name>
+    <condition>
+        <greater-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.57</value>
+        </greater-than>
+    </condition>
+  </animation>
+
+</PropertyList>
