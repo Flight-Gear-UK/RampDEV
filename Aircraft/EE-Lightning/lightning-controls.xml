@@ -1,0 +1,75 @@
+
+<PropertyList>
+
+	 <copilot>
+		 <elevator type="double">0</elevator>
+		 <rudder type="double">0</rudder>
+		 <aileron type="double">0</aileron>
+		 <speedbrake-switch type="bool">false</speedbrake-switch>
+		 <throttle n="0" type="double">0</throttle>
+		 <throttle n="1" type="double">0</throttle>
+		 <brake-left type="double">0</brake-left>
+		 <brake-right type="double">0</brake-right>
+		 <brake-parking type="double">0</brake-parking>
+	 </copilot>
+	 <flight>
+		 <flaps type="bool">false</flaps>
+		 <speedbrake-switch type="bool">false</speedbrake-switch>
+	 </flight>
+	 <gear>
+		 <brake-parking type="bool">true</brake-parking>
+	 </gear>
+
+ <switches>
+  <battery type="bool">true</battery>
+  <ground-power type="bool">true</ground-power>
+  <nav-lights type="int">0</nav-lights>
+  <taxi-lights type="bool">false</taxi-lights>
+ </switches>
+ 
+ <electric>
+  <circuit-breakers>
+   <AC-main-contactor type="bool">true</AC-main-contactor>
+   <DC-main-contactor type="bool">true</DC-main-contactor>
+   <UVHF type="bool">true</UVHF>
+  </circuit-breakers>
+ </electric>
+ 
+ <rotary>
+  <pilot-flood-lights type="float">0.5</pilot-flood-lights>
+  <pilot-instrument-lights type="float">0.4</pilot-instrument-lights>
+  <copilot-flood-lights type="float">0.5</copilot-flood-lights>
+  <copilot-instrument-lights type="float">0.4</copilot-instrument-lights>
+  <IFIS-lights type="float">0.5</IFIS-lights>
+ </rotary>
+ 
+ <comm n="0">
+   <switches>
+    <freq-1 type="int">0</freq-1>
+	<freq-2 type="int">0</freq-2>
+	<freq-3 type="int">0</freq-3>
+	<freq-4 type="int">0</freq-4>
+	<freq-5 type="int">0</freq-5>
+   </switches>
+  </comm>
+  
+  <comm n="1">
+   <switches>
+    <freq-1 type="int">0</freq-1>
+	<freq-2 type="int">0</freq-2>
+	<freq-3 type="int">0</freq-3>
+	<freq-4 type="int">0</freq-4>
+	<freq-5 type="int">0</freq-5>
+   </switches>
+  </comm>
+  
+  <station-box>
+    <adf type="bool">false</adf>
+	<ils type="bool">false</ils>
+	<rt1 type="bool">false</rt1>
+	<rt2 type="bool">false</rt2>
+	<volume type="double">0.5</volume>
+	<xmit type="int">1</xmit>
+  </station-box>
+
+</PropertyList>

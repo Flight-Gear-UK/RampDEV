@@ -1,0 +1,411 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+English Electric Lightning F.1A Config File
+AJ MacLeod (aj-lists@adpetopensource.co.uk)
+************************************************************************
+-->
+
+<PropertyList>
+
+	<sim>
+
+		<description>English Electric Lightning T5 (YASIM)</description>
+		<author>Alphasim, StuartC, Algernon</author>
+		<status>v0.2d</status>
+
+		<flight-model>yasim</flight-model>
+		<aero>lightning-yasim-T5</aero>
+
+		<allow-toggle-cockpit archive="y">false</allow-toggle-cockpit>
+		<chase-distance-m type="double" archive="y">-30.0</chase-distance-m>
+		<virtual-cockpit archive="y">true</virtual-cockpit>
+
+		<startup>
+			 <splash-texture>Aircraft/EE-Lightning/T5-splash.jpg</splash-texture>
+		</startup>
+
+		<sound>
+			 <path>Aircraft/EE-Lightning/Sounds/lightning-sound.xml</path>
+			 <levels>
+				 <cockpit-ambience type="double">0.75</cockpit-ambience>
+			 </levels>
+		</sound>
+
+		<panel>
+			<visibility archive="y">false</visibility>
+		</panel>
+
+		<model>
+			<path>Aircraft/EE-Lightning/Models/Lightning-T5.xml</path>
+		</model>
+		
+		<multiplay>
+		 <generic>
+		  <int n="0" alias="/systems/electrical/outputs/external-lights/nav-lights" />
+		  <int n="1" alias="/systems/electrical/outputs/external-lights/taxi-lights" />
+		  <int n="2" alias="/controls/switches/nav-lights" />
+		  <int n="4" alias="/engines/engine[0]/state" />
+		  <int n="5" alias="/engines/engine[1]/state" />
+		  <int n="6" alias="/sim/damage/damage-zones/engine[0]/mp-explosion" />
+		  <int n="7" alias="/sim/crashed" />
+		  <int n="8" alias="/instrumentation/autopilot/selector-bank" />
+		  <int n="10"></int> <!--  Dual Control Reserved -->
+		  <int n="11" alias="/environment/contrail"></int>
+		  <float n="0" alias="/velocities/groundspeed-kt" />
+		  <float n="1" alias="/position/altitude-agl-ft" />
+		  <float n="2" alias="/engines/engine[0]/reheat" />
+		  <float n="3" alias="/engines/engine[1]/reheat" />
+		  <float n="4" alias="/sim/damage/damage-zones/engine[0]/smoke-norm" />
+		  <float n="5" alias="/sim/damage/damage-zones/engine[1]/smoke-norm" />
+		  <float n="6" alias="/sim/damage/damage-zones/engine[0]/fire" />
+		  <float n="7" alias="/sim/damage/damage-zones/engine[1]/fire" />
+		  <float n="8" alias="/gear/gear[0]/rollspeed-ms" />
+		  <float n="9" alias="/gear/gear[1]/rollspeed-ms" />
+		  <float n="10" alias="/gear/gear[2]/rollspeed-ms" />
+		  <float n="11" alias="/instrumentation/autopilot/selector-pitch" />
+		 </generic>
+		</multiplay>
+
+<!-- Views -->
+  <view n="0">
+   <!-- Passenger's position. -->
+   <name>Copilot View</name>
+   <type>lookfrom</type>
+   <internal type="bool">true</internal>
+   <config>
+    <internal type="bool">true</internal>
+    <from-model type="bool">false</from-model>
+    <from-model-idx type="int">0</from-model-idx>
+    <eye-lat-deg-path>/position/latitude-deg</eye-lat-deg-path>
+    <eye-lon-deg-path>/position/longitude-deg</eye-lon-deg-path>
+    <eye-alt-ft-path>/position/altitude-ft</eye-alt-ft-path>
+    <eye-heading-deg-path>/orientation/heading-deg</eye-heading-deg-path>
+    <eye-pitch-deg-path>/orientation/pitch-deg</eye-pitch-deg-path>
+    <eye-roll-deg-path>/orientation/roll-deg</eye-roll-deg-path>
+
+    <!-- x/y/z == right/up/back -->
+   	<x-offset-m archive="y">-0.3</x-offset-m>
+				<y-offset-m archive="y">1.34</y-offset-m><!--Up-->
+				<z-offset-m archive="y">-3.4</z-offset-m><!--Back-->
+    <pitch-offset-deg>-7.25</pitch-offset-deg>
+    <default-field-of-view-deg type="double">90.0</default-field-of-view-deg>
+   </config>
+  </view>
+  <!-- Views -->
+    <view n="100">
+   <!-- Pilot's position. -->
+   <name>Pilot View</name>
+   <type>lookfrom</type>
+   <config>
+    <internal type="bool">true</internal>
+    <from-model type="bool">false</from-model>
+    <eye-lat-deg-path>/position/latitude-deg</eye-lat-deg-path>
+    <eye-lon-deg-path>/position/longitude-deg</eye-lon-deg-path>
+    <eye-alt-ft-path>/position/altitude-ft</eye-alt-ft-path>
+    <eye-heading-deg-path>/orientation/heading-deg</eye-heading-deg-path>
+    <eye-pitch-deg-path>/orientation/pitch-deg</eye-pitch-deg-path>
+    <eye-roll-deg-path>/orientation/roll-deg</eye-roll-deg-path>
+
+    <!-- x/y/z == right/up/back -->
+  	<x-offset-m archive="y">0.3</x-offset-m>
+				<y-offset-m archive="y">1.34</y-offset-m><!--Up-->
+				<z-offset-m archive="y">-3.4</z-offset-m><!--Back-->
+    <pitch-offset-deg>-7.25</pitch-offset-deg>
+    <default-field-of-view-deg type="double">90.0</default-field-of-view-deg>
+   </config>
+  </view>
+  
+   <view n="101">
+    <name>Pilot cam</name>
+        <internal archive="y">false</internal>
+        <config>
+		<internal archive="y">false</internal>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+       <x-offset-m archive="y">-0.35</x-offset-m><!--right-->
+				<y-offset-m archive="y">1.36</y-offset-m><!--up-->
+				<z-offset-m archive="y">-3.85</z-offset-m><!--back-->
+          <pitch-offset-deg>0</pitch-offset-deg>
+		  <heading-offset-deg>199</heading-offset-deg>
+          <default-field-of-view-deg>110</default-field-of-view-deg>
+        </config>
+     
+  </view>
+  
+  
+  	<view n="102">
+			<name>Over the shoulder</name>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<from-model-idx type="int">0</from-model-idx>
+				<x-offset-m archive="y">0</x-offset-m><!--right-->
+				<y-offset-m archive="y">1.39</y-offset-m><!--up-->
+				<z-offset-m archive="y">-3.1</z-offset-m><!--back-->
+				<pitch-offset-deg>-10</pitch-offset-deg>
+				<heading-offset-deg>0</heading-offset-deg>
+				<default-field-of-view-deg>75</default-field-of-view-deg>
+			</config>
+		</view>
+
+  <view n="6">
+      <name>Fly-By View</name>
+      <enabled type="bool" userarchive="y">true</enabled>
+      <type>lookat</type>
+      <config>
+        <eye-lon-deg-path>/sim/viewer/longitude-deg</eye-lon-deg-path>
+        <eye-lat-deg-path>/sim/viewer/latitude-deg</eye-lat-deg-path>
+        <eye-alt-ft-path>/sim/viewer/altitude-ft</eye-alt-ft-path>
+        <at-model type="bool">true</at-model>
+        <at-model-idx type="int">0</at-model-idx>
+        <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+      </config>
+    </view>
+	
+ <hud>
+  <path n="1">Aircraft/EE-Lightning/Hud/hudT5L.xml</path>
+  <visibility n="1">true</visibility>
+  <palette>
+  <color n="0">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">0.38</red>
+     <green type="float">1.0</green>
+     <blue type="float">0.22</blue>
+  </color>
+  <color n="1">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">1.0</red>
+     <green type="float">0.2</green>
+     <blue type="float">0.0</blue>
+   </color>
+   </palette>
+ </hud>	
+
+	 <systems>
+
+		 <autopilot n="1">
+			 <path>Aircraft/EE-Lightning/Systems/Autopilot.xml</path>
+		 </autopilot>
+			
+		 <autopilot n="2">
+			 <path>Aircraft/EE-Lightning/Systems/lightning-yasim-FCS.xml</path>
+		 </autopilot>
+
+		 <!-- Null Electrical System, use custom one instead -->
+		 <electrical include="Systems/lightning-electrical.xml" >
+			 <path></path>
+		 </electrical>
+
+	 </systems>
+
+	 <!-- Submodels not yet reactivated  >
+	 <submodels>
+		 <serviceable type="bool">true</serviceable>
+		 <path>Aircraft/EE-Lightning/Models/lightning-submodels.xml</path>
+	 </submodels> <-->
+		
+     <menubar>
+		 <default>
+			 <menu n="100">
+				 <label>Lightning T5</label>
+				 <item>
+				      <label>Pilot Notes (Browser)</label>
+					 <binding>
+						 <command>open-browser</command>
+						 <path>Aircraft/EE-Lightning/Docs/html/pilots-notes.html</path>
+					 </binding>
+				 </item>
+				 <item>
+					 <label>Select MP-copilot</label>
+					 <binding>
+						 <command>nasal</command>
+						 <script>
+						 dual_control_tools.
+						 copilot_dialog.show(aircraft_dual_control.copilot_type);
+						 </script>
+					 </binding>
+				 </item>
+			 </menu>
+		 </default>
+	 </menubar>
+
+		<help>
+			<line>This is a work in progress!!</line>
+			<line></line>
+			<key>
+				<name>ctrl-t</name>
+				<desc>Toggle autothrottle</desc>
+			</key>
+			<key>
+				<name>Ctrl-j</name>
+				<desc>Jettison ventral tank</desc>
+			</key>
+			<key>
+				<name>l</name>
+				<desc>Select squadron markings</desc>
+			</key>
+			<key>
+				<name>R</name>
+				<desc>Radar close-up view (hold key down)</desc>
+			</key>
+			<key>
+				<name>u/U</name>
+				<desc>Adjust seat (Requires DC power)</desc>
+			</key>
+
+		</help>
+		
+		<rendering>
+			<refl-correction type="float">-0.1</refl-correction>
+			<ambient-correction type="float">0.4</ambient-correction>
+		</rendering>
+		
+	</sim>	
+	
+	<input>
+		<keyboard include="Input/lightning-keyboard.xml" />
+	</input>
+
+	<engines>
+		<engine n="0">
+			<running>false</running>
+		</engine>
+		<engine n="1">
+			<running>false</running>
+		</engine>
+	    <!-- Borrowed MP properties for aliases -->
+		<engine n="5"> <!-- FCS / Flight Director -->
+		 <n1 alias="/systems/FCS/target-pitch-deg" /> <!-- FCS Command for FD -->
+		 <n2 alias="/systems/FCS/target-roll-deg" /> <!-- FCS Command for FD -->
+		 <rpm alias="/systems/FCS/flight-director/engaged-norm" /> <!-- Altimeter Setting -->
+		</engine>
+		<engine n="6">
+		 <rpm alias="/instrumentation/altimeter/setting-inhg" /> <!-- Altimeter Setting -->
+		</engine>
+		<engine n="7">
+		 <rpm alias="/systems/electrical/outputs/busbars/main-28v-busbar" /> <!-- Main 28V busbar volts -->
+		</engine>
+		<engine n="8">
+		 <n1 alias="/controls/rotary/pilot-flood-lights" />
+		 <n2 alias="/controls/rotary/pilot-instrument-lights" />
+		 <rpm alias="/controls/rotary/IFIS-lights" />
+		</engine>
+		
+		
+	</engines>
+
+	<controls include="lightning-controls.xml" />
+	    
+
+	<systems>
+		<refuel>
+			<type>probe</type>
+		</refuel>
+	</systems>
+	
+	<consumables>
+  <fuel>
+   <tank n="0">
+    <level-gal_us archive="y">367.5</level-gal_us>
+   </tank>
+   <tank n="1">
+    <level-gal_us archive="y">367.5</level-gal_us>
+   </tank>
+   <tank n="2">
+    <level-gal_us archive="y">294</level-gal_us>
+</tank>  
+  </fuel>
+ </consumables>
+ 
+ <environment>
+    <turbulence>
+      <use-cloud-turbulence>true</use-cloud-turbulence>
+    </turbulence>
+  </environment>
+
+
+	
+
+	<instrumentation>
+		<radar>
+			<serviceable type="bool" archive="y">true</serviceable>
+			<switch type="string" archive="y">off</switch>
+			<mode-control type="int" archive="y">3</mode-control>
+			<range type="int" archive="y">20</range>
+			<mode type="string"	archive="y">WX</mode>
+			<heading-marker type="bool"	archive="y">false</heading-marker>
+			<lightning type="bool" archive="y">false</lightning>
+			<display-mode type="string">arc</display-mode>
+			<radar-texture-path type="string" archive="y">Aircraft/EE-Lightning/Models/radar.rgb</radar-texture-path>
+			<echo-texture-path type="string" archive="y">Aircraft/Instruments/Textures/wxecho-orange.rgb</echo-texture-path>
+			<display-controls>
+				<WX type="bool" archive="y">false</WX>
+				<data type="bool" archive="y">false</data>
+				<pos type="bool" archive="y">true</pos>
+			</display-controls>
+		</radar>
+	</instrumentation>
+
+	<nasal>
+	    <controls>
+		 <file>Aircraft/EE-Lightning/Nasal/lightning-controls.nas</file>
+		</controls>
+		<damage>
+		 <file>Aircraft/EE-Lightning/Nasal/damage.nas</file>
+		</damage>
+		<electrical>
+		 <file>Aircraft/EE-Lightning/Nasal/electrical.nas</file>
+		</electrical>
+		<autopilot>
+		 <file>Aircraft/EE-Lightning/Nasal/lightning-autopilot.nas</file>
+		</autopilot>
+		<eno>
+		 <file>Aircraft/EE-Lightning/Nasal/eno.nas</file>
+		</eno>
+		<yasimengines>
+		 <file>Aircraft/EE-Lightning/Nasal/engines.nas</file>
+		</yasimengines>
+		<lightning>
+		 <file>Aircraft/EE-Lightning/Nasal/lightning.nas</file>
+		</lightning>
+		<!-- Disabled for now >
+		<disintegration>
+		 <file>Aircraft/EE-Lightning/Nasal/disintegration.nas</file>
+		</disintegration>
+		<explosion>
+		 <file>Aircraft/EE-Lightning/Nasal/explosion.nas</file>
+		</explosion>
+		<-->
+		<ext_lights>
+		 <file>Aircraft/EE-Lightning/Nasal/ext-lights.nas</file>
+		</ext_lights>
+		<avionics>
+		 <file>Aircraft/EE-Lightning/Nasal/nav-display.nas</file>
+		</avionics>
+		<dual_control_tools>
+         <file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+        </dual_control_tools>
+        <aircraft_dual_control>
+         <file>Aircraft/EE-Lightning/Nasal/lightningT5-dual-control.nas</file>
+        </aircraft_dual_control>
+        <dual_control>
+		 <file>Aircraft/Generic/DualControl/pilot-dual-control.nas</file>
+		</dual_control>
+		<uvhf>
+			<file>Aircraft/EE-Lightning/Nasal/PTR-175.nas</file>
+		</uvhf>
+	</nasal>
+
+	<limits>
+		<max-gear-extension-speed>280</max-gear-extension-speed>
+	</limits>
+
+</PropertyList>

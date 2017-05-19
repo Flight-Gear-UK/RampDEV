@@ -1,0 +1,493 @@
+
+<PropertyList>
+
+ <!-- Lightning T5 FCS -->
+
+ <filter>
+  <type>gain</type>
+  <input>
+   <expression>
+    <sum>
+     <property>/controls/flight/aileron</property>
+     <property>/controls/copilot/aileron</property>
+	 <property>/systems/FCS/autopilot/actuators/ailerons-norm</property>
+	</sum>
+   </expression>
+  </input>
+  <output>
+   <property>/systems/FCS/command-outputs/aileron</property>
+  </output>
+  <gain>1.0</gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <type>gain</type>
+  <input>   
+   <expression>
+    <sum>
+     <property>/controls/flight/elevator</property>
+     <property>/controls/copilot/elevator</property>
+	</sum>
+   </expression>
+  </input>
+  <output>
+   <property>/systems/FCS/command-outputs/elevator</property>
+  </output>
+  <gain>1.0</gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <type>gain</type>
+  <input>
+   <expression>
+    <sum>
+     <property>/controls/flight/rudder</property>
+     <property>/controls/copilot/rudder</property>
+    </sum>
+   </expression>
+  </input>
+  <output>
+   <property>/systems/FCS/command-outputs/rudder</property>
+  </output>
+  <gain>1.0</gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <type>gain</type>
+  <input>
+     <property>/controls/flight/speedbrake-switch</property>
+  </input>
+  <output>
+   <property>/systems/FCS/command-outputs/speedbrake</property>
+  </output>
+  <gain>1.0</gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <type>gain</type>
+  <input>
+   <expression>
+    <sum>
+     <property>/controls/flight/flaps</property>
+    </sum>
+   </expression>
+  </input>
+  <output>
+   <property>/systems/FCS/command-outputs/flaps</property>
+  </output>
+  <gain>1.0</gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <type>gain</type>
+  <input>
+   <expression>
+    <sum>
+     <property>/controls/engines/engine[0]/throttle-lever</property>
+     <property>/controls/copilot/throttle[0]</property>
+    </sum>
+   </expression>
+  </input>
+  <output>
+   <property>/systems/FCS/command-outputs/throttle[0]</property>
+  </output>
+  <gain>1.0</gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <filter>
+  <type>gain</type>
+  <input>
+   <expression>
+    <sum>
+     <property>/controls/engines/engine[1]/throttle-lever</property>
+     <property>/controls/copilot/throttle[1]</property>
+    </sum>
+   </expression>
+  </input>
+  <output>
+   <property>/systems/FCS/command-outputs/throttle[1]</property>
+  </output>
+  <gain>1.0</gain>
+  <u_min>-1.0</u_min>
+  <u_max>1.0</u_max>
+ </filter>
+ 
+ <pi-simple-controller>
+  <name>Heading Error</name>
+  <debug>false</debug>
+  <input>
+   <property>/orientation/heading-deg</property>
+  </input>
+  <reference>
+   <property>/instrumentation/nav-display/settings/selected-heading-deg</property>
+  </reference>
+  <output>
+   <property>/systems/FCS/heading-error</property>
+  </output>
+  <config> <!-- just build the delta, no integration -->
+   <Kp>1.0</Kp>
+   <Ki>0.0</Ki>
+  </config>
+  <period>
+   <min>-180</min>
+   <max>180</max>
+  </period>
+ </pi-simple-controller>
+ 
+ <pi-simple-controller>
+  <name>Track Error</name>
+  <debug>false</debug>
+  <input>
+   <property>/orientation/track-deg</property>
+  </input>
+  <reference>
+   <property>/instrumentation/nav-display/heading-pointer-deg</property>
+  </reference>
+  <output>
+   <property>/systems/FCS/track-error</property>
+  </output>
+  <config> <!-- just build the delta, no integration -->
+   <Kp>1</Kp>
+   <Ki>0.0</Ki>
+  </config>
+  <period>
+   <min>-180</min>
+   <max>180</max>
+  </period>
+ </pi-simple-controller>
+ 
+ <pid-controller>
+  <name>Altitude Error</name>
+  <debug>false</debug>
+  <input>
+   <property>/position/altitude-ft</property>
+  </input>
+  <reference>
+   <property>/systems/FCS/target-altitude-ft</property>
+  </reference>
+  <output>
+   <property>/systems/FCS/altitude-error</property>
+  </output>
+  <config>
+    <Kp>-0.025</Kp>        <!-- proportional gain -0.01 -->
+    <beta>0.01</beta>       <!-- input value weighing factor -->
+    <alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
+    <gamma>0.0</gamma>     <!-- input value weighing factor for -->
+                           <!-- unfiltered derivative error -->
+    <Ti>10.0</Ti>          <!-- integrator time  10.0 -->
+    <Td>0.0001</Td>       <!-- derivator time -->
+	<u_min>-20</u_min>
+    <u_max>20</u_max>
+  </config>
+ </pid-controller>
+ 
+ <pid-controller>
+  <name>Glideslope Error</name>
+  <debug>false</debug>
+  <input>
+   <property>/velocities/vertical-speed-fps</property>
+  </input>
+  <reference>
+   <property>/instrumentation/nav[0]/gs-rate-of-climb</property>
+  </reference>
+  <output>
+   <property>/systems/FCS/glideslope-error</property>
+  </output>
+  <config>
+    <Kp>-0.001</Kp>        <!-- proportional gain -0.01 -->
+    <beta>0.01</beta>       <!-- input value weighing factor -->
+    <alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
+    <gamma>0.0</gamma>     <!-- input value weighing factor for -->
+                           <!-- unfiltered derivative error -->
+    <Ti>10.0</Ti>          <!-- integrator time  10.0 -->
+    <Td>0.0001</Td>       <!-- derivator time -->
+	<u_min>-800</u_min>
+    <u_max>800</u_max>
+  </config>
+ </pid-controller>
+ 
+ <pi-simple-controller>
+  <name>Speed Error</name>
+  <debug>false</debug>
+  <input>
+   <property>/velocities/airspeed-kt</property>
+  </input>
+  <reference>
+   <property>/systems/FCS/target-speed-kt</property>
+  </reference>
+  <output>
+   <property>/systems/FCS/speed-error</property>
+  </output>
+  <config> <!-- just build the delta, no integration -->
+   <Kp>-1</Kp>
+   <Ki>0.0</Ki>
+  </config>
+  <period>
+   <min>-800</min>
+   <max>800</max>
+  </period>
+ </pi-simple-controller>
+ 
+ <filter>
+  <name>Vertical Source Select</name>
+  <type>gain</type>
+  <input>
+   <condition>
+    <equals>
+     <property>/systems/FCS/mode-vertical</property>
+	 <value></value>
+	</equals>
+   </condition>
+   <value>0</value>
+  </input>
+  <input>
+   <condition>
+    <equals>
+	 <property>/systems/FCS/mode-vertical</property>
+	 <value>altitude-hold</value>
+    </equals>
+   </condition>
+   <property>/systems/FCS/altitude-error</property>
+   <scale>-1</scale>
+  </input>
+  <input>
+   <condition>
+    <equals>
+	 <property>/systems/FCS/mode-vertical</property>
+	 <value>pitch-hold</value>
+    </equals>
+   </condition>
+   <property>/instrumentation/autopilot/selector-pitch</property>
+  </input>
+  <input>
+   <condition>
+    <equals>
+	 <property>/systems/FCS/mode-vertical</property>
+	 <value>glide</value>
+    </equals>
+   </condition>
+   <value>-3</value>
+  </input>
+  <output>
+   <property>/systems/FCS/target-pitch-deg</property>
+  </output>
+  <gain>1.0</gain>
+  <u_min>-6.6</u_min>
+  <u_max>6.6</u_max>
+ </filter>
+ 
+ <filter>
+  <name>Lateral Source Select</name>
+  <type>gain</type>
+  <input>
+   <condition>
+    <equals>
+     <property>/systems/FCS/mode-lateral</property>
+	 <value></value>
+	</equals>
+   </condition>
+   <value>0</value>
+  </input>
+  <input>
+   <condition>
+    <equals>
+	 <property>/systems/FCS/mode-lateral</property>
+	 <value>heading-hold</value>
+    </equals>
+   </condition>
+   <property>/systems/FCS/heading-error</property>
+   <scale>5</scale>
+  </input>
+  <input>
+   <condition>
+    <equals>
+	 <property>/systems/FCS/mode-lateral</property>
+	 <value>roll-hold</value>
+    </equals>
+   </condition>
+   <property>/instrumentation/autopilot/selector-bank</property>
+  </input>
+  <input>
+   <condition>
+    <equals>
+	 <property>/systems/FCS/mode-lateral</property>
+	 <value>track-hold</value>
+    </equals>
+   </condition>
+   <property>/systems/FCS/track-error</property>
+   <scale>5</scale>
+  </input>
+  <output>
+   <property>/systems/FCS/target-roll-deg</property>
+  </output>
+  <gain>1</gain>
+  <u_min>-30</u_min>
+  <u_max>30</u_max>
+ </filter>
+ 
+ <pid-controller>
+  <name>Pitch Demand</name>
+  <debug>false</debug>
+  <input>
+   <condition>
+    <property>/systems/FCS/autopilot/engaged</property>
+   </condition>
+   <property>/orientation/pitch-deg</property>
+  </input>
+  <input>
+   <condition>
+    <not>
+	 <property>/systems/FCS/autopilot/engaged</property>
+	</not>
+   </condition>
+   <value>0</value>
+  </input>
+  <reference>
+   <condition>
+    <property>/systems/FCS/autopilot/engaged</property>
+   </condition>
+   <property>/systems/FCS/target-pitch-deg</property>
+  </reference>
+  <reference>
+   <condition>
+    <not>
+	 <property>/systems/FCS/autopilot/engaged</property>
+	</not>
+   </condition>
+   <value>0</value>
+  </reference>
+  <output>
+   <property>/systems/FCS/demand-pitch-deg</property>
+  </output>
+    <config>
+      <Kp>-0.1</Kp>        <!-- proportional gain -->
+      <beta>1.0</beta>     <!-- input value weighing factor -->
+      <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
+      <gamma>0.0</gamma>   <!-- input value weighing factor for -->
+                           <!-- unfiltered derivative error -->
+      <Ti>1</Ti>        <!-- integrator time -->
+      <Td>0.00001</Td>     <!-- derivator time -->
+      <u_min>
+	   <property>/systems/FCS/autopilot/actuators/limiter-tailplane</property>
+	   <scale>-1</scale>
+	  </u_min> <!-- minimum output clamp -->
+      <u_max>
+	   <property>/systems/FCS/autopilot/actuators/limiter-tailplane</property>
+	  </u_max>  <!-- maximum output clamp -->
+    </config>
+  </pid-controller>
+  
+ <pid-controller>
+  <name>Roll Demand</name>
+  <debug>false</debug>
+  <input>
+   <condition>
+    <property>/systems/FCS/autopilot/engaged</property>
+   </condition>
+   <property>/orientation/roll-deg</property>
+  </input>
+  <input>
+   <condition>
+    <not>
+	 <property>/systems/FCS/autopilot/engaged</property>
+	</not>
+   </condition>
+   <value>0</value>
+  </input>
+  <reference>
+   <condition>
+    <property>/systems/FCS/autopilot/engaged</property>
+   </condition>
+   <property>/systems/FCS/target-roll-deg</property>
+  </reference>
+  <reference>
+   <condition>
+    <not>
+	 <property>/systems/FCS/autopilot/engaged</property>
+	</not>
+   </condition>
+   <value>0</value>
+  </reference>
+  <output>
+   <property>/systems/FCS/autopilot/actuators/ailerons-norm</property>
+  </output>
+    <config>
+      <Kp>0.075</Kp>        <!-- proportional gain -->
+      <beta>0.5</beta>     <!-- input value weighing factor -->
+      <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
+      <gamma>0.0</gamma>   <!-- input value weighing factor for -->
+                           <!-- unfiltered derivative error -->
+      <Ti>1</Ti>        <!-- integrator time -->
+      <Td>0.00001</Td>     <!-- derivator time -->
+      <u_min>
+	   <property>/systems/FCS/autopilot/actuators/limiter-ailerons</property>
+	   <scale>-1</scale>
+	  </u_min> <!-- minimum output clamp -->
+      <u_max>
+	   <property>/systems/FCS/autopilot/actuators/limiter-ailerons</property>
+	  </u_max>  <!-- maximum output clamp -->
+    </config>
+  </pid-controller>
+  
+  <pid-controller>
+  <name>Throttle Demand</name>
+  <debug>false</debug>
+  <enable>
+   <condition>
+    <property>/systems/FCS/autothrottle/engaged</property>
+   </condition>
+  </enable>
+  <input>
+   <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+  </input>
+  <reference>
+   <property>/systems/FCS/target-speed-kt</property>
+  </reference>
+  <output>
+   <property>/systems/FCS/autopilot/actuators/throttle-norm</property>
+  </output>
+  <output>
+   <property>/controls/engines/engine[0]/throttle</property>
+  </output>
+  <output>
+   <property>/controls/engines/engine[1]/throttle</property>
+  </output>
+    <config>
+      <Kp>0.02</Kp>        <!-- proportional gain -->
+      <beta>1.0</beta>    <!-- input value weighing factor -->
+      <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+      <gamma>0.0</gamma>  <!-- input value weighing factor for -->
+                          <!-- unfiltered derivative error -->
+      <Ti>20.0</Ti>       <!-- integrator time -->
+      <Td>0.00001</Td>    <!-- derivator time -->
+      <u_min>0.0</u_min>  <!-- minimum output clamp -->
+      <u_max>0.975/</u_max>
+    </config>
+  </pid-controller>
+  
+  <filter>
+    <name>Pitch Actuator</name>
+    <debug>false</debug>
+    <type>noise-spike</type>
+    <input>/systems/FCS/demand-pitch-deg</input>
+    <output>/systems/FCS/autopilot/actuators/tailplane-norm</output>
+    <max-rate-of-change>
+	 <value>5</value>
+	</max-rate-of-change>
+  </filter>
+
+ 
+ 
+</PropertyList>

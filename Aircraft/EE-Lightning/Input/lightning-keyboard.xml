@@ -1,0 +1,227 @@
+
+<PropertyList>
+
+ <key n="1">
+ <name>Ctrl-A</name>
+  <desc>Toggle Autpilot Engage</desc>
+  <binding>
+   <command>property-toggle</command>
+   <property>/systems/FCS/autopilot/engaged</property>
+  </binding>
+ </key>
+
+ <key n="20">
+ <name>Ctrl-T</name>
+  <desc>Toggle Autothrottle Engage</desc>
+  <binding>
+   <command>property-toggle</command>
+   <property>/systems/FCS/autothrottle/engaged</property>
+  </binding>
+ </key>
+ 
+ <key n="29">
+				<name>Ctrl-]</name>
+				<desc>Show configuration dialog</desc>
+				<binding>
+					<command>nasal</command>
+					<script>Lightning.dialog.toggle()</script>
+				</binding>
+			</key>
+			
+	 <key n="32">
+		 <name>Spacebar</name>
+		 <desc>UVHF PTT</desc>
+		 <binding>
+			 <command>property-assign</command>
+			 <property>/instrumentation/PTR-175/push-to-talk</property>
+			 <value>true</value>
+		 </binding>
+		 <mod-up>
+			 <binding>
+				 <command>property-assign</command>
+				 <property>/instrumentation/PTR-175/push-to-talk</property>
+				 <value>false</value>
+			 </binding>
+		 </mod-up>
+	 </key>
+
+			<!-- Ventral Tank Jettison -->
+			<key n="10">
+				<name>Ctrl-J</name>
+				<desc>Ventral tank jettison</desc>
+				<binding>
+					<command>nasal</command>
+					<script>Lightning.ventralJettison(1);</script>
+				</binding>
+			</key>
+			
+			<key n="99">
+				<name>c</name>
+				<desc>Canopy</desc>
+				<binding>
+					<command>nasal</command>
+					<script>lightning.canopy.toggle();</script>
+				</binding>
+			</key>
+			
+			<key n="125">
+				<name>Shift-]</name>
+				<desc>Engine Start</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+					     lightning.engines.engine1.autostart();
+					     settimer( func { 
+						     lightning.engines.engine2.autostart();
+							},6);
+						 settimer( func { 
+						     setprop("controls/switches/nav-lights",2);
+						     setprop("controls/switches/taxi-lights",1);
+							},15);
+					</script>
+				</binding>
+			</key>
+
+			<!-- instant replay -->
+			<key n="114">
+				<name>r</name>
+				<desc>Activate the instant replay system.</desc>
+				<binding>
+					<command>nasal</command>
+					<script>Lightning.doReplay();</script>
+				</binding>
+			</key>
+
+			<!-- Airbrake -->
+			<key n="2">
+				<name>Ctrl-B</name>
+				<desc>Airbrakes</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>controls/flight/speedbrake-switch</property>
+				</binding>
+			</key>
+
+			<!-- Autothrottle -->
+			<key n="19">
+				<name>ctrl-s</name>
+				<desc>toggle autothrottle</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>controls/switches/autothrottle</property>
+				</binding>
+			</key>
+
+
+			<!-- Seat Lower -->
+			<key n="85">
+				<name>U</name>
+				<desc>Seat Down</desc>
+				<binding>
+					<condition>
+						<equals>
+							<property>sim/current-view/view-number</property>
+							<value>0</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>/sim/model/EE-Lightning/controls/seat</property>
+					<value>-1</value>
+				</binding>
+				<mod-up>
+					<binding>
+						<condition>
+							<equals>
+								<property>sim/current-view/view-number</property>
+								<value>0</value>
+							</equals>
+						</condition>
+						<command>property-assign</command>
+						<property>/sim/model/EE-Lightning/controls/seat</property>
+						<value>0</value>
+					</binding>
+				</mod-up>
+			</key>
+			<!-- Seat Raise -->
+			<key n="117">
+				<name>u</name>
+				<desc>Seat Up</desc>
+				<binding>
+					<condition>
+						<equals>
+							<property>sim/current-view/view-number</property>
+							<value>0</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>/sim/model/EE-Lightning/controls/seat</property>
+					<value>1</value>
+				</binding>
+				<mod-up>
+					<binding>
+						<condition>
+							<equals>
+								<property>sim/current-view/view-number</property>
+								<value>0</value>
+							</equals>
+						</condition>
+						<command>property-assign</command>
+						<property>/sim/model/EE-Lightning/controls/seat</property>
+						<value>0</value>
+					</binding>
+				</mod-up>
+			</key>
+			<!-- Radar View -->
+			<key n="82">
+				<name>R</name>
+				<desc>Radar View</desc>
+				<binding>
+					<condition>
+						<equals>
+							<property>sim/current-view/view-number</property>
+							<value>0</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>dynamic_view.lookat(0, -15, 0, 0.124, 1.3, 4.2, 0.5, 38)</script>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>nasal</command>
+						<script>dynamic_view.resume()</script>
+					</binding>
+				</mod-up>
+			</key>
+			<!-- Livery Box -->
+			<key n="108">
+				<name>l</name>
+				<desc>Show livery select dialog</desc>
+				<binding>
+					<command>nasal</command>
+					<script>aircraft.livery.dialog.toggle()</script>
+				</binding>
+			</key>
+			<key n="100">
+				<name>d</name>
+				<desc>Deploy braking chute</desc>
+				<binding>
+					<command>nasal</command>
+					<script>controls.deployChute(1)</script>
+				</binding>
+			</key>
+			
+			<key n="24">
+				<name>Shift-Ctrl-X</name>
+				<desc>Destroy</desc>
+				<mod-shift>
+				 <binding>
+					<command>nasal</command>
+					<script>
+					explosion.explode(1);
+					setprop("sim/crashed",1);
+					</script>
+				 </binding>
+				</mod-shift>
+			</key>
+
+</PropertyList>

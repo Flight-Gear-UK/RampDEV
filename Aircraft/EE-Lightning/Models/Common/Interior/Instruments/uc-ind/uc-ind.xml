@@ -1,0 +1,166 @@
+
+<PropertyList>
+
+	<path>uc-ind.ac</path>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>red.port</object-name>
+	 <condition>
+	  <greater-than>
+	   <property>gear/gear[1]/position-norm</property>
+	   <value>0.01</value>
+	  </greater-than>
+	  <less-than>
+	   <property>gear/gear[1]/position-norm</property>
+	   <value>0.99</value>
+	  </less-than>
+	 </condition>
+	</animation>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>red.off.port</object-name>
+	 <condition>
+	  <less-than>
+	   <property>gear/gear[1]/position-norm</property>
+	   <value>0.01</value>
+	  </less-than>
+	 </condition>
+	</animation>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>red.nose</object-name>
+	 <condition>
+	  <greater-than>
+	   <property>gear/gear[0]/position-norm</property>
+	   <value>0.01</value>
+	  </greater-than>
+	  <less-than>
+	   <property>gear/gear[0]/position-norm</property>
+	   <value>0.99</value>
+	  </less-than>
+	 </condition>
+	</animation>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>red.off.nose</object-name>
+	 <condition>
+	  <less-than>
+	   <property>gear/gear[0]/position-norm</property>
+	   <value>0.01</value>
+	  </less-than>
+	 </condition>
+	</animation>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>red.stbd</object-name>
+	 <condition>
+	  <greater-than>
+	   <property>gear/gear[2]/position-norm</property>
+	   <value>0.01</value>
+	  </greater-than>
+	  <less-than>
+	   <property>gear/gear[2]/position-norm</property>
+	   <value>0.99</value>
+	  </less-than>
+	 </condition>
+	</animation>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>red.off.stbd</object-name>
+	 <condition>
+	  <less-than>
+	   <property>gear/gear[2]/position-norm</property>
+	   <value>0.01</value>
+	  </less-than>
+	 </condition>
+	</animation>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>green.stbd.1</object-name>
+	 <condition>
+	  <equals>
+	   <property>gear/gear[1]/position-norm</property>
+	   <value>1</value>
+	  </equals>
+	 </condition>
+	</animation>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>green.off.stbd.1</object-name>
+	 <condition>
+	  <less-than>
+	   <property>gear/gear[1]/position-norm</property>
+	   <value>1</value>
+	  </less-than>
+	 </condition>
+	</animation>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>green.nose.1</object-name>
+	 <condition>
+	  <equals>
+	   <property>gear/gear[1]/position-norm</property>
+	   <value>1</value>
+	  </equals>
+	 </condition>
+	</animation>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>green.off.nose.1</object-name>
+	 <condition>
+	  <less-than>
+	   <property>gear/gear[0]/position-norm</property>
+	   <value>1</value>
+	  </less-than>
+	 </condition>
+	</animation>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>green.port.1</object-name>
+	 <condition>
+	  <equals>
+	   <property>gear/gear[2]/position-norm</property>
+	   <value>1</value>
+	  </equals>
+	 </condition>
+	</animation>
+	
+	<animation>
+	 <type>select</type>
+	 <object-name>green.off.port.1</object-name>
+	 <condition>
+	  <less-than>
+	   <property>gear/gear[2]/position-norm</property>
+	   <value>1</value>
+	  </less-than>
+	 </condition>
+	</animation>
+	  
+	<animation>
+  <type>material</type>
+  <object-name>red.stbd</object-name>
+  <object-name>red.port</object-name>
+  <object-name>red.nose</object-name>
+  <object-name>green.stbd.1</object-name>
+  <object-name>green.port.1</object-name>
+  <object-name>green.nose.1</object-name>
+  <emission>
+    <red>1</red>
+    <green>1</green>
+    <blue>1</blue>
+  </emission>
+ </animation>
+	  
+	
+</PropertyList>

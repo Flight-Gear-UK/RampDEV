@@ -1,0 +1,102 @@
+
+<!-- PTR-175 Channel Presets -->
+
+<PropertyList>
+
+ <channel n="0">
+  <id>G</id>
+  <description>Guard</description>
+  <frequency></frequency>
+ </channel>
+ 
+ <channel n="1">
+  <description>Valley Tower</description>
+  <frequency>122.75</frequency>
+ </channel>
+ 
+ <channel n="2">
+  <description>Valley ATIS</description>
+  <frequency>120.72</frequency>
+ </channel>
+ 
+ <channel n="3">
+  <description>Llanbedr Tower</description>
+  <frequency>122.5</frequency>
+ </channel>
+ 
+ <channel n="4">
+  <description>Llanbedr ATIS</description>
+  <frequency>122.10</frequency>
+ </channel> 
+ 
+ <channel n="5">
+  <description>Cottesmore Tower</description>
+  <frequency>122.10</frequency>
+ </channel>
+ 
+ <channel n="6">
+  <description>Manchester Woodford Tower</description>
+  <frequency>120.70</frequency>
+ </channel>
+
+ <channel n="7">
+  <description></description>
+  <frequency>0</frequency>
+ </channel>
+ 
+ <channel n="8">
+  <description></description>
+  <frequency>0</frequency>
+ </channel>
+ 
+ <channel n="9">
+  <description></description>
+  <frequency>0</frequency>
+ </channel>
+ 
+  <channel n="10">
+  <description></description>
+  <frequency>0</frequency>
+ </channel>
+
+ <channel n="11">
+  <description></description>
+  <frequency>0</frequency>
+ </channel>
+
+ <channel n="12">
+  <description></description>
+  <frequency>0</frequency>
+ </channel>
+ 
+ <channel n="13">
+  <description></description>
+  <frequency>0</frequency>
+ </channel>
+ 
+ <channel n="14">
+  <description>Cranwell ATIS</description>
+  <frequency>135.67</frequency>
+ </channel>
+ 
+ <channel n="15">
+  <description>Valley ATIS</description>
+  <frequency>120.72</frequency>
+ </channel>
+
+ <channel n="16">
+  <description>Church Fenton Tower</description>
+  <frequency>122.1</frequency>
+ </channel>
+ 
+  <channel n="17">
+  <description></description>
+  <frequency>0</frequency>
+ </channel>
+ 
+ <channel n="18">
+  <description></description>
+  <frequency>0</frequency>
+ </channel>
+ 
+</PropertyList>

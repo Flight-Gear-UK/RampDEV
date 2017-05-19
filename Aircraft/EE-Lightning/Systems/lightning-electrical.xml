@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+  <path></path> <!-- Important: clearing the path disables the default Flightgear system -->
+
+  <!-- Suppliers -->
+  
+  <component>
+    <kind type="string">external</kind>
+    <name type="string">Ground Power 200v</name>
+    <volts type="float">200</volts>
+    <prop type="string">/systems/electrical/suppliers/ground-power-200V</prop>
+	<frequency type="float">400</frequency>
+	<freq-prop type="string">/systems/electrical/suppliers/ground-power-frequency</freq-prop>
+  </component>
+  
+  <component>
+    <kind type="string">external</kind>
+    <name type="string">Ground Power 28v</name>
+    <volts type="float">28</volts>
+    <prop type="string">/systems/electrical/suppliers/ground-power-28V</prop>
+  </component>
+
+  <component>
+    <kind type="string">alternator</kind>
+    <name type="string">Alternator</name>
+    <volts type="float">200</volts>
+    <prop type="string">/systems/electrical/suppliers/engine-alternator[0]</prop>
+	<frequency type="float">400</frequency>
+	<freq-prop type="string">/systems/electrical/suppliers/alternator-frequency[0]</freq-prop>
+    <source-prop type="string">/engines/engine[0]/rpm</source-prop>
+    <source-min type="float">30</source-min>
+  </component>
+  
+  <component>
+    <kind type="string">battery</kind>
+    <name type="string">Main Battery</name>
+    <volts type="float">28</volts>
+    <prop type="string">/systems/electrical/suppliers/main-battery</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Battery Busbar</name>
+	<prop type="string">/systems/electrical/outputs/busbars/battery</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Main 28v Busbar</name>
+	<prop type="string">/systems/electrical/outputs/busbars/main-28v-busbar</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Main 200v Busbar</name>
+	<prop type="string">/systems/electrical/outputs/busbars/main-200v-busbar</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Transformer 28v</name>
+	<prop type="string">/systems/electrical/outputs/transformers/transformer-28v</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Transformer 115v</name>
+	<prop type="string">/systems/electrical/outputs/transformers/transformer-115v</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Voltmeter</name>
+	<prop type="string">/systems/electrical/indicators/main-28v-busbar-volts</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">ILS</name>
+	<prop type="string">/systems/electrical/outputs/nav</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">TACAN</name>
+	<prop type="string">/systems/electrical/outputs/tacan</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">IFIS 28v</name>
+	<prop type="string">/systems/electrical/outputs/IFIS-28v</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Nav Lights</name>
+	<prop type="string">/systems/electrical/outputs/external-lights/nav-lights</prop>
+  </component> 
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Taxi Lights</name>
+	<prop type="string">/systems/electrical/outputs/external-lights/taxi-lights</prop>
+  </component> 
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Pilot Flood Lights</name>
+	<prop type="string">/systems/electrical/outputs/internal-lights/pilot-floods</prop>
+  </component>  
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">IFIS Lights</name>
+	<prop type="string">/systems/electrical/outputs/internal-lights/IFIS</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Pilot Instrument Lights</name>
+	<prop type="string">/systems/electrical/outputs/internal-lights/pilot-instruments</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Copilot Flood Lights</name>
+	<prop type="string">/systems/electrical/outputs/internal-lights/copilot-floods</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Copilot Instrument Lights</name>
+	<prop type="string">/systems/electrical/outputs/internal-lights/copilot-instruments</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">Panel Illumination</name>
+	<prop type="string">/systems/electrical/outputs/internal-lights/panel-illumination</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">IFF 28v</name>
+	<prop type="string">/systems/electrical/outputs/IFF-28v</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">IFF 200v</name>
+	<prop type="string">/systems/electrical/outputs/IFF-200v</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">UVHF 28v</name>
+	<prop type="string">/systems/electrical/outputs/UVHF-28v</prop>
+  </component>
+  
+  <component>
+    <kind type="string">output</kind>
+    <name type="string">UVHF 200v</name>
+	<prop type="string">/systems/electrical/outputs/UVHF-200v</prop>
+  </component>
+  
+  <!-- Connectors -->
+  
+  <connector> 
+    <input type="string">Main Battery</input>
+    <output type="string">Battery Busbar</output>
+  </connector>
+  
+  <connector> 
+    <input type="string">Battery Busbar</input>
+    <output type="string">Main 28v Busbar</output>
+	<switch type="string">/controls/switches/battery</switch>
+  </connector>
+  
+  <connector> 
+    <input type="string">Ground Power 28v</input>
+    <output type="string">Main 28v Busbar</output>
+	<switch type="string">/controls/switches/ground-power</switch>
+  </connector>
+  
+  <connector> 
+    <input type="string">Main 28v Busbar</input>
+    <output type="string">Voltmeter</output>
+  </connector>
+  
+  <connector> 
+    <input type="string">Alternator</input>
+    <output type="string">Main 200v Busbar</output>
+	<switch type="string">/controls/electric/circuit-breakers/AC-main-contactor</switch>
+  </connector>
+  
+  <connector> 
+    <input type="string">Main 28v Busbar</input>
+    <output type="string">TACAN</output>
+  </connector>
+  
+  <connector> 
+    <input type="string">Main 28v Busbar</input>
+    <output type="string">ILS</output>
+  </connector>
+  
+  <connector> 
+    <input type="string">Main 28v Busbar</input>
+    <output type="string">IFIS 28v</output>
+  </connector>
+  
+  <connector> 
+    <input type="string">Main 200v Busbar</input>
+    <output type="string">IFF 200v</output>
+  </connector>
+  
+  <connector> 
+    <input type="string">Main 28v Busbar</input>
+	<switch type="string">/controls/electric/circuit-breakers/UVHF</switch>
+    <output type="string">UVHF 28v</output>
+  </connector>
+  
+  <connector> 
+    <input type="string">Main 200v Busbar</input>
+	<switch type="string">/controls/electric/circuit-breakers/UVHF</switch>
+    <output type="string">UVHF 200v</output>
+  </connector>
+  
+    <connector> 
+    <input type="string">Main 28v Busbar</input>
+	<switch type="string">/controls/switches/nav-lights</switch>
+    <output type="string">Nav Lights</output>
+  </connector>
+  
+  <connector> 
+    <input type="string">Main 28v Busbar</input>
+	<switch type="string">/controls/switches/taxi-lights</switch>
+    <output type="string">Taxi Lights</output>
+  </connector>
+  
+  <!-- Transformers -->
+  
+  <connector> <!-- 115v Transformer/Rectifier Unit -->
+    <input type="string">Main 200v Busbar</input>
+    <output type="string">Transformer 115v</output>
+	<variable type="string">switch-volts</variable>
+	<scale type="double">0.14</scale>
+  </connector>
+  
+  <connector> <!-- Transformer/Rectifier Unit -->
+    <input type="string">Main 200v Busbar</input>
+    <output type="string">Transformer 28v</output>
+	<variable type="string">switch-volts</variable>
+	<scale type="double">0.14</scale>
+  </connector>
+  
+  <connector> <!-- Instruments -->
+    <input type="string">Main 28v Busbar</input>
+    <output type="string">Pilot Instrument Lights</output>
+    <switch type="string">/controls/rotary/pilot-instrument-lights</switch>
+	<variable type="string">switch-volts</variable>
+	<scale type="double">0.0357</scale>
+  </connector>
+  
+  <connector> 
+    <input type="string">Main 28v Busbar</input>
+    <output type="string">Copilot Instrument Lights</output>
+    <switch type="string">/controls/rotary/copilot-instrument-lights</switch>
+	<variable type="string">switch-volts</variable>
+	<scale type="double">0.0357</scale>
+  </connector>
+  
+  <connector> <!-- Cockpit Floods -->
+    <input type="string">Main 28v Busbar</input>
+    <output type="string">Pilot Flood Lights</output>
+    <switch type="string">/controls/rotary/pilot-flood-lights</switch>
+	<variable type="string">switch-volts</variable>
+	<scale type="double">0.0357</scale>
+  </connector>
+  
+  <connector> <!-- Instruments -->
+    <input type="string">Main 28v Busbar</input>
+    <output type="string">Copilot Flood Lights</output>
+    <switch type="string">/controls/rotary/copilot-flood-lights</switch>
+	<variable type="string">switch-volts</variable>
+	<scale type="double">0.0357</scale>
+  </connector>
+  
+  
+  <connector> <!-- Instruments -->
+    <input type="string">Main 28v Busbar</input>
+    <output type="string">IFIS Lights</output>
+    <switch type="string">/controls/rotary/IFIS-lights</switch>
+	<variable type="string">switch-volts</variable>
+	<scale type="double">0.0357</scale>
+  </connector>
+  
+  <connector> <!-- Instruments -->
+    <input type="string">Main 28v Busbar</input>
+    <output type="string">Panel Illumination</output>
+    <switch type="string">/controls/rotary/IFIS-lights</switch>
+	<variable type="string">switch-volts</variable>
+	<scale type="double">1</scale>
+  </connector>
+  
+</PropertyList>

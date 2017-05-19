@@ -1,0 +1,180 @@
+
+<PropertyList>
+
+ <path>beam.ac</path>
+
+ <effect>
+  <inherits-from>Effects/model-transparent</inherits-from>
+  <condition>
+   <property>/sim/rendering/rembrandt/enabled</property>
+  </condition>
+  <object-name>aura</object-name>
+ </effect>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>beam</object-name>
+  <condition>
+   <property>/sim/rendering/rembrandt/enabled</property>
+   <greater-than>
+    <property>sim/multiplay/generic/int[1]</property>
+	<value>22</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>select</type>
+  <object-name>aura</object-name>
+  <condition>
+   <property>/sim/rendering/rembrandt/enabled</property>
+   <greater-than>
+    <property>sim/multiplay/generic/int[1]</property>
+	<value>22</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+  <animation>
+  <type>dist-scale</type>
+  <object-name>aura</object-name>
+  <interpolation>
+   <entry>
+    <ind>0</ind>
+    <dep>0.5</dep>
+   </entry>
+   <entry>
+    <ind>500</ind>
+    <dep>5</dep>
+   </entry>
+   <entry>
+    <ind>4000</ind>
+    <dep>10</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+ </animation>
+  
+ <animation>
+  <type>blend</type>
+  <object-name>aura</object-name>
+    <expression>
+      <sum>
+        <product>
+            <value>-1</value>
+          <sum>
+            <max>
+              <product>
+                <pow>
+                  <cos><property>/sim/time/sun-angle-rad</property></cos>
+                  <value>0.3</value>
+                </pow>
+                <value>1.0</value> <!-- by tuning this, you specify how much to fade during full daylight -->
+              </product>
+              <value>0</value>
+            </max>
+            <value>-1</value>
+          </sum>
+          <value>-1</value>
+        </product>
+        <value>1.3</value>
+      </sum>
+    </expression>
+ </animation>
+
+<animation>
+    <type>light</type>
+    <light-type>spot</light-type>
+    <object-name>beam</object-name>
+	<nopreview/>
+    <position>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </position>
+    <direction>
+      <x> -10 </x>
+      <y> 0  </y>
+      <z>  0 </z>
+    </direction>
+    <ambient>
+      <r>  0.3 </r>
+      <g>  0.3 </g>
+      <b>  0.1 </b>
+      <a>  0.2 </a>
+    </ambient>
+    <diffuse>
+      <r>  0.9 </r>
+      <g>  0.9 </g>
+      <b>  0.55 </b>
+      <a>  1.0 </a>
+    </diffuse>
+    <specular>
+      <r>  1.0 </r>
+      <g>  1.0 </g>
+      <b>  0.95 </b>
+      <a>  1.0 </a>
+    </specular>
+    <dim-factor>
+        <expression>
+        <product>
+          <value>-1</value>
+          <sum>
+            <product>
+              <max>
+                <pow>
+                  <cos><property>/sim/time/sun-angle-rad</property></cos>
+                  <value>0.3</value>
+                </pow>
+                <value>0</value>
+              </max>
+              <value>1.0</value>
+            </product>
+            <value>-1</value>
+          </sum>
+        </product>
+      </expression>
+	</dim-factor>
+   <attenuation>
+     <c>0.5</c>
+     <l>0.0005</l>
+     <q>0.0005</q>
+   </attenuation>
+   <exponent>80.0</exponent>
+   <cutoff>400</cutoff>
+   <near-m>3.5</near-m>
+   <far-m>500</far-m>
+ </animation>
+ 
+  <animation>
+  <type>flash</type>
+  <object-name>aura</object-name>
+  <offset>0.1</offset>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>-0.6</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+  <power>5</power>
+ </animation>
+ 
+ <animation>
+  <type>material</type>
+  <object-name>aura</object-name>
+  <emission>
+    <red>1</red>
+    <green>1</green>
+    <blue>0.65</blue>
+  </emission>
+ </animation>
+ 
+ </PropertyList>

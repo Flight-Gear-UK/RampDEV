@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>lightning-ap.ac</path>
+ 
+ <animation>
+		<type>scale</type>
+		<x-min>0.85</x-min>
+		<y-min>0.85</y-min>
+		<z-min>0.85</z-min>
+		<x-factor>1</x-factor>
+		<y-factor>1</y-factor>
+		<z-factor>1</z-factor>
+	</animation>
+ 
+   <animation>
+        <type>knob</type>
+        <object-name>bank.select</object-name>
+		<object-name>pitch.select</object-name>
+		<object-name>pitch.ring</object-name>
+        <property>/instrumentation/autopilot/selector-bank</property>
+        <!-- center, axis, factor, ... -->
+ 		<factor>-1</factor>
+		<offset-deg>0</offset-deg>
+		<center>
+			<x-m>0.0049</x-m>
+			<y-m>0.0003</y-m>
+			<z-m>-0.02435</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/instrumentation/autopilot/selector-bank</property>
+                <factor>10</factor>
+				<min>-30</min>
+                <max>30</max>
+				<wrap>false</wrap>
+            </binding>
+        </action>
+		<shift-action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/instrumentation/autopilot/selector-pitch</property>
+                <factor>0.5</factor>
+				<min>-6.5</min>
+                <max>6.5</max>
+				<wrap>false</wrap>
+            </binding>
+        </shift-action>
+    </animation>
+	
+ <animation>
+  <object-name>pitch.select</object-name>
+  <type>rotate</type>
+  <property>/instrumentation/autopilot/selector-pitch</property>
+  <factor>2</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>0.0193</x-m>
+   <y-m>-0.0075</y-m>
+   <z-m>-0.0232</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>key.heading</object-name>
+  <type>rotate</type>
+  <property>/instrumentation/autopilot/key-heading</property>
+  <factor>-18</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>-0.000477</x-m>
+   <z-m>0.025</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>key.height</object-name>
+  <type>rotate</type>
+  <property>/instrumentation/autopilot/key-height</property>
+  <factor>-18</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>-0.000477</x-m>
+   <z-m>0.025</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>key.attitude</object-name>
+  <type>rotate</type>
+  <property>/instrumentation/autopilot/key-attitude</property>
+  <factor>-18</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>-0.000477</x-m>
+   <z-m>0.025</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>key.track</object-name>
+  <type>rotate</type>
+  <property>/instrumentation/autopilot/key-track</property>
+  <factor>-18</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>-0.000477</x-m>
+   <z-m>0.025</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <object-name>key.glide</object-name>
+  <type>rotate</type>
+  <property>/instrumentation/autopilot/key-glide</property>
+  <factor>-18</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>-0.000477</x-m>
+   <z-m>0.025</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>key.heading</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>property-toggle</command>
+	 <property>/instrumentation/autopilot/key-heading</property>
+    </binding>
+	<binding>
+     <command>nasal</command>
+	 <script>
+	     if ( getprop("/instrumentation/autopilot/key-heading") ) {
+			 autopilot.modeselect("heading");
+			}
+		 else { 
+		     autopilot.latmode.setValue("");
+			}
+	 </script>
+    </binding>
+   </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>key.height</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>property-toggle</command>
+	 <property>/instrumentation/autopilot/key-height</property>
+    </binding>
+	<binding>
+     <command>nasal</command>
+	 <script>
+	     if ( getprop("/instrumentation/autopilot/key-height") ) {
+			 autopilot.modeselect("height");
+			}
+		 else { 
+		     autopilot.vermode.setValue("");
+			}
+	 </script>
+    </binding>
+   </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>key.attitude</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>property-toggle</command>
+	 <property>/instrumentation/autopilot/key-attitude</property>
+    </binding>
+	<binding>
+     <command>nasal</command>
+	 <script>
+	     if ( getprop("/instrumentation/autopilot/key-attitude") ) {
+			 autopilot.modeselect("attitude");
+			}
+			
+		 else { 
+		     autopilot.latmode.setValue("");
+			 autopilot.vermode.setValue("");
+			}
+	 </script>
+    </binding>
+   </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>key.track</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>property-toggle</command>
+	 <property>/instrumentation/autopilot/key-track</property>
+    </binding>
+	<binding>
+     <command>nasal</command>
+	 <script>
+	     if ( getprop("/instrumentation/autopilot/key-track") ) {
+			 autopilot.modeselect("track");
+			}
+		 else { 
+		     autopilot.latmode.setValue("");
+			}
+	 </script>
+    </binding>
+   </action>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+   <object-name>key.glide</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>property-toggle</command>
+	 <property>/instrumentation/autopilot/key-glide</property>
+    </binding>
+	<binding>
+     <command>nasal</command>
+	 <script>
+	     if ( getprop("/instrumentation/autopilot/key-glide") ) {
+			 autopilot.modeselect("glide");
+			}
+		 else { 
+			 autopilot.vermode.setValue("");
+			}
+	 </script>
+    </binding>
+   </action>
+ </animation>
+
+
+	<!-- *** LoD *** -->
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>5</max-m>
+	</animation> 
+
+</PropertyList>

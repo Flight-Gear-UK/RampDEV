@@ -1,0 +1,409 @@
+<?xml version = '1.0' ?>
+<PropertyList>
+
+<!-- Braking Chute -->
+
+<path>t5-cockpit.ac</path>
+
+  <model>
+    <path>Aircraft/EE-Lightning/Models/T5/Interior/cockpit-floods.xml/</path>
+  </model>
+
+
+<model>
+	<name>IFIS-airspeed</name>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/speed/speed_display.xml/</path>
+    <offsets>
+      <x-m>-3.505</x-m>
+      <y-m>-0.01</y-m>
+      <z-m>1.0</z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+  </model>
+  
+ <animation>
+	<object-name>IFIS-airspeed</object-name>
+	<type>scale</type>
+	<x-min>1.1</x-min>
+	<y-min>1.1</y-min>
+	<z-min>1.1</z-min>
+	<x-factor>1.5</x-factor>
+	<y-factor>1.5</y-factor>
+	<z-factor>1.5</z-factor>
+ </animation>
+
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/nav/nav_display.xml/</path>
+    <offsets>
+       <x-m>  -3.87</x-m>
+      <y-m>  0.035</y-m>
+      <z-m>1.0 </z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+		<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1.1</x-offset>
+    <y-offset>1.2</y-offset>
+    <z-offset>1.1</z-offset>
+   </animation>
+   </overlay>
+  </model>   
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/attitude/attitude_rb.xml/</path>
+    <offsets>
+      <x-m>  -3.89</x-m>
+      <y-m>  -0.09</y-m>
+      <z-m>1 </z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1.1</x-offset>
+    <y-offset>1.2</y-offset>
+    <z-offset>1.1</z-offset>
+   </animation>
+   </overlay>
+  </model>  
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/autopilot/lightning-ap.xml/</path>
+    <offsets>
+      <x-m>-3.865</x-m>
+      <y-m>-0.03</y-m>
+      <z-m>0.89 </z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+  </model> 
+  
+  <model>
+    <name>PTR-175</name>
+	<path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/PTR-175/PTR-175.xml/</path>
+    <offsets>
+      <x-m>-3.865</x-m>
+      <y-m>-0.17</y-m>
+      <z-m>0.88</z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/iff/iff-mk10.xml</path>
+    <offsets>
+      <x-m>-3.86</x-m>
+      <y-m>-0.64</y-m>
+      <z-m>0.73</z-m>
+	  
+	  <pitch-deg>-40</pitch-deg>
+	  <heading-deg>40</heading-deg>
+	  <roll-deg>90</roll-deg>
+    </offsets>
+  </model>
+  
+  <animation>
+		<object-name>PTR-175</object-name>
+		<type>scale</type>
+		<x-min>1</x-min>
+		<y-min>1</y-min>
+		<z-min>1</z-min>
+		<x-factor>1</x-factor>
+		<y-factor>1</y-factor>
+		<z-factor>1</z-factor>
+	</animation>
+  
+  <model>
+    <name>IFIS-altimeter-vsi</name>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/alt-vsi/altimeter_vsi.xml</path>	
+  <offsets>
+      <x-m>-3.86</x-m>
+      <y-m>  -0.19 </y-m>
+      <z-m>0.993</z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1.1</x-offset>
+    <y-offset>1.2</y-offset>
+    <z-offset>1.1</z-offset>
+   </animation>
+   </overlay>
+</model>
+
+<model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/uc-ind/uc-ind.xml</path>
+    <offsets>
+      <x-m>-3.87</x-m>
+      <y-m>0.4808</y-m>
+      <z-m>0.8767</z-m>
+	  <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/uc-ind/uc-ind.xml</path>
+    <offsets>
+      <x-m>-3.867</x-m>
+      <y-m>-0.59</y-m>
+      <z-m>0.82 </z-m>
+	  <pitch-deg>-5</pitch-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/ai/standby_ai.xml</path>
+    <offsets>
+      <x-m>-3.865</x-m>
+      <y-m>  0.2365 </y-m>
+      <z-m>0.9995</z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>0.64</x-offset>
+    <y-offset>0.64</y-offset>
+    <z-offset>0.63</z-offset>
+   </animation>
+   </overlay>
+  </model>
+  
+   <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/ai/standby_ai.xml</path>
+    <offsets>
+      <x-m>-3.855</x-m>
+      <y-m>  -0.293 </y-m>
+      <z-m>1.005</z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>0.64</x-offset>
+    <y-offset>0.64</y-offset>
+    <z-offset>0.63</z-offset>
+   </animation>
+   </overlay>
+  </model>
+  
+  
+  
+   <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/rpm/rpm-1.xml</path>
+    <offsets>
+       <x-m>-3.865</x-m>
+      <y-m>  0.36 </y-m>
+      <z-m>0.881</z-m>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1.25</x-offset>
+    <y-offset>1.25</y-offset>
+    <z-offset>1.25</z-offset>
+   </animation>
+   </overlay>
+  </model>   
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/rpm/rpm-2.xml/</path>
+   <offsets>
+       <x-m>-3.865</x-m>
+      <y-m>  0.414 </y-m>
+      <z-m>0.881</z-m>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1.25</x-offset>
+    <y-offset>1.25</y-offset>
+    <z-offset>1.25</z-offset>
+   </animation>
+   </overlay>
+  </model>    
+  
+   <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/rpm/rpm-1.xml/</path>
+    <offsets>
+       <x-m>-3.865</x-m>
+      <y-m>  -0.424 </y-m>
+      <z-m>0.88</z-m>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1.25</x-offset>
+    <y-offset>1.25</y-offset>
+    <z-offset>1.25</z-offset>
+   </animation>
+   </overlay>
+  </model>   
+  
+  
+   <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/oilpressure/oilpressureL.xml/</path>
+    <offsets>
+       <x-m>-3.873</x-m>
+      <y-m>  0.227</y-m>
+      <z-m>0.888 </z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1.26</x-offset>
+    <y-offset>1.26</y-offset>
+    <z-offset>1.26</z-offset>
+   </animation>
+   </overlay>
+  </model>   
+  
+   <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/oilpressure/oilpressureL.xml/</path>
+    <offsets>
+       <x-m>-3.869</x-m>
+      <y-m>  -0.288</y-m>
+      <z-m>0.888 </z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1.26</x-offset>
+    <y-offset>1.26</y-offset>
+    <z-offset>1.26</z-offset>
+   </animation>
+   </overlay>
+  </model>   
+  
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/oilpressure/oilpressureR.xml/</path>
+    <offsets>
+       <x-m>-3.873</x-m>
+      <y-m>  0.279</y-m>
+      <z-m>0.888 </z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1.26</x-offset>
+    <y-offset>1.26</y-offset>
+    <z-offset>1.26</z-offset>
+   </animation>
+   </overlay>
+  </model>   
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/oilpressure/oilpressureR.xml/</path>
+    <offsets>
+       <x-m>-3.8695</x-m>
+      <y-m>  -0.339</y-m>
+      <z-m>0.888 </z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1.26</x-offset>
+    <y-offset>1.26</y-offset>
+    <z-offset>1.26</z-offset>
+   </animation>
+   </overlay>
+  </model>   
+  
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/rpm/rpm-2.xml/</path>
+   <offsets>
+       <x-m>-3.865</x-m>
+      <y-m>  -0.478 </y-m>
+      <z-m>0.88</z-m>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1.25</x-offset>
+    <y-offset>1.25</y-offset>
+    <z-offset>1.25</z-offset>
+   </animation>
+   </overlay>
+  </model>    
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/asi/asi.xml/</path>
+    <offsets>
+      <x-m>-3.8705</x-m>
+      <y-m>  0.257 </y-m>
+      <z-m>0.935</z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/EE-Lightning/Models/Common/Interior/Instruments/asi/asi.xml/</path>
+    <offsets>
+      <x-m>-3.867</x-m>
+      <y-m>  -0.312 </y-m>
+      <z-m>0.934</z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Instruments-3d/vor/vor.xml/</path>
+    <offsets>
+      <x-m>-3.8682</x-m>
+      <y-m>  0.203 </y-m>
+      <z-m>0.937</z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>0.55</x-offset>
+    <y-offset>0.55</y-offset>
+    <z-offset>0.55</z-offset>
+   </animation>
+   </overlay>
+  </model>
+  
+  <model>
+    <path>Aircraft/Instruments-3d/vsi/vsi.xml/</path>
+    <offsets>
+      <x-m>-3.86775</x-m>
+     <y-m>  -0.265 </y-m>
+      <z-m>0.934</z-m>
+	  <roll-deg>0</roll-deg>
+    </offsets>
+	<overlay>
+		 <animation n="101">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>0.55</x-offset>
+    <y-offset>0.55</y-offset>
+    <z-offset>0.55</z-offset>
+   </animation>
+   </overlay>
+  </model>
+	
+
+</PropertyList>
